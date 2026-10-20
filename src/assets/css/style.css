@@ -165,13 +165,11 @@ a.lang__item:hover { opacity: 1; }
   font-size: 20px;
   line-height: 1.35;
   white-space: nowrap;
-  transition: background-color 0.2s, color 0.2s, transform 0.2s var(--ease);
+  transition: transform 0.25s var(--ease);
 }
 .btn--filled { background: var(--color-bg-inverse); color: var(--color-text-inverse); }
-.btn--filled:hover { background: var(--color-bg-accent-light); }
 .btn--outline { border: 1px solid var(--color-border-strong); color: var(--color-text-primary); }
-.btn--outline:hover { background: var(--color-text-primary); color: var(--color-text-inverse); }
-.btn:active { transform: scale(0.98); }
+.btn:hover { transform: translateY(-5px); }
 
 /* Hero */
 .hero {
