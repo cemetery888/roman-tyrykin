@@ -64,3 +64,5 @@
 @media (prefers-reduced-motion: reduce) {
   .case-back, .to-top { transition: none; }
 }
+/* Любой блок макета не шире своего родителя */
+:where(.fig div, .fig p, .fig ul, .fig ol, .fig a):not(:where(.absolute)) { max-width: 100%; min-width: 0; }

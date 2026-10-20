@@ -56,20 +56,32 @@ const px = (cls, prefix) => {
   return m ? parseFloat(m[1]) : null;
 };
 
-function fixClasses(node, bp) {
+function fixClasses(node, bp, parent) {
   let cls = ` ${node.props.className || ''} `;
   cls = cls.replace(/font-\['(Onest|Inter):[^']*'\]/g, "font-['Onest']")
     .replace(/font-\['IBM_Plex_Mono:[^']*'\]/g, "font-['IBM_Plex_Mono']")
     .replace(/font-\['Space_Mono:[^']*'\]/g, "font-['Space_Mono']");
+  // «Растянуть по ширине» в Figma выгружается как w-[min-content] min-w-full — это просто w-full
+  if (/ w-\[min-content\] /.test(cls) && / min-w-full /.test(cls)) cls = cls.replace(/ w-\[min-content\] /, ' w-full ').replace(/ min-w-full /, ' ');
   const w = px(cls, 'w'); const hgt = px(cls, 'h');
   if (w && w >= CONTENT_W[bp] - 1) cls = cls.replace(/ w-\[[\d.]+px\] /, ' w-full ');
   if (hgt && hgt > 40 && !/ absolute /.test(cls)) {
     cls = cls.replace(/ h-\[([\d.]+)px\] /, ' min-h-[$1px] ');
   }
-  if (w && !/ w-full /.test(cls)) cls += ' max-w-full ';
+  if (w && !/ w-full /.test(cls)) {
+    // Фиксированная ширина из макета: не шире родителя
+    const mw = cls.match(/ max-w-\[([\d.]+)px\] /);
+    if (mw && parseFloat(mw[1]) >= w) cls = cls.replace(mw[0], ' ');
+    if (!/ max-w-\[/.test(cls)) cls += ' max-w-full ';
+  }
+  // max-w из макета тоже не шире родителя
+  cls = cls.replace(/ max-w-\[([\d.]+px)\] /g, ' max-w-[min($1,100%)] ');
   if (/ shrink-0 /.test(cls) && w) cls = cls.replace(/ shrink-0 /, ' shrink min-w-0 ');
+  if (/ whitespace-nowrap /.test(cls) && text(node).length > 16) cls = cls.replace(/ whitespace-nowrap /, ' ');
+  const rowParent = parent?.props && / flex /.test(` ${parent.props.className} `) && !/ flex-col /.test(` ${parent.props.className} `);
+  if (rowParent && / shrink-0 /.test(cls) && !/ (w|size)-\[/.test(cls)) cls = cls.replace(/ shrink-0 /, ' shrink min-w-0 ');
   // Длинные строки не должны вылезать за экран
-  if (node.tag === 'p' && / whitespace-nowrap /.test(cls) && text(node).length > 24) cls = cls.replace(/ whitespace-nowrap /, ' ');
+  if ((node.tag === 'p' || node.tag === 'span') && / shrink-0 /.test(cls) && !/ whitespace-nowrap /.test(cls)) cls = cls.replace(/ shrink-0 /, ' shrink min-w-0 ');
   return cls.trim().replace(/\s+/g, ' ');
 }
 
@@ -112,7 +124,7 @@ function render(node, bp, ctx) {
     return `<img src="{{base}}assets/cases/${key}.svg" alt="" class="${attr((p.className || '').trim())}">`;
   }
   const out = [];
-  let cls = fixClasses(node, bp);
+  let cls = fixClasses(node, bp, ctx.parent);
   let inner;
   if (nid && imageLeaf(node)) {
     const imgs = []; node.children.forEach((c) => walk(c, (d) => isRaster(d) && imgs.push(d)));
@@ -125,7 +137,7 @@ function render(node, bp, ctx) {
     const r = (p.className || '').match(/rounded-\[[^\]]+\]/);
     inner = `<img src="{{base}}assets/cases/${key}.webp" alt="" class="absolute inset-0 size-full object-cover max-w-none${r ? ' ' + r[0] : ''}" loading="lazy" decoding="async">`;
   } else {
-    inner = node.children.map((c) => render(c, bp, { anc: nid ? node : ctx.anc })).join('');
+    inner = node.children.map((c) => render(c, bp, { anc: nid ? node : ctx.anc, parent: node })).join('');
   }
   if (cls) out.push(`class="${attr(cls)}"`);
   if (p.style) out.push(`style="${attr(Object.entries(p.style).map(([k, v]) => `${k.replace(/[A-Z]/g, (c) => '-' + c.toLowerCase())}:${v}`).join(';'))}"`);
@@ -147,7 +159,7 @@ for (const [slug, langs] of Object.entries(frames)) {
         const start = ps.findIndex((t) => !['ru', 'en'].includes(t));
         (meta[slug] ||= {})[lang] = { title: ps[start], description: ps[start + 1] };
       }
-      const body = root.children.map((c) => render(c, BP[i], { anc: root })).join('');
+      const body = root.children.map((c) => render(c, BP[i], { anc: root, parent: root })).join('');
       parts.push(`<div class="fig fig--${BP[i]}">${body}</div>`);
     }
     const html = parts.join('\n');
