@@ -165,13 +165,11 @@ a.lang__item:hover { opacity: 1; }
   font-size: 20px;
   line-height: 1.35;
   white-space: nowrap;
-  transition: background-color 0.2s, color 0.2s, transform 0.2s var(--ease);
+  transition: transform 0.25s var(--ease);
 }
 .btn--filled { background: var(--color-bg-inverse); color: var(--color-text-inverse); }
-.btn--filled:hover { background: var(--color-bg-accent-light); }
 .btn--outline { border: 1px solid var(--color-border-strong); color: var(--color-text-primary); }
-.btn--outline:hover { background: var(--color-text-primary); color: var(--color-text-inverse); }
-.btn:active { transform: scale(0.98); }
+.btn:hover { transform: translateY(-5px); }
 
 /* Hero */
 .hero {
@@ -312,19 +310,15 @@ a.lang__item:hover { opacity: 1; }
   box-shadow: var(--shadow-card);
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
-.case:hover { transform: translateY(-6px); box-shadow: 0 24px 40px rgba(0, 0, 0, 0.45); }
+.case:hover { transform: scale(1.03); box-shadow: 0 24px 40px rgba(0, 0, 0, 0.45); }
 .case__media {
   overflow: hidden;
   aspect-ratio: 604 / 320;
   border-radius: var(--radius-8);
 }
-.case__media img, .case__phones img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
-.case:hover .case__media img { transform: scale(1.03); }
+.case__media img, .case__phones img { width: 100%; height: 100%; object-fit: cover; }
 .case__phones { display: flex; gap: var(--space-20); height: 320px; }
 .case__phones img { width: auto; flex: none; aspect-ratio: 9 / 20.7; border-radius: var(--radius-8); }
-.case--phones:hover .case__phones img { transform: translateY(-4px); }
-.case--phones:hover .case__phones img:nth-child(2) { transition-delay: 0.05s; }
-.case--phones:hover .case__phones img:nth-child(3) { transition-delay: 0.1s; }
 .case__body { display: flex; flex-direction: column; gap: var(--space-16); }
 .case__title { font-family: var(--font-mono-title); font-size: 28px; font-weight: 700; line-height: 1.45; }
 .case__text { font-size: 18px; line-height: 1.45; }
@@ -353,13 +347,13 @@ a.lang__item:hover { opacity: 1; }
   left: 0;
   display: flex;
   align-items: center;
-  gap: var(--space-12);
-  padding: var(--space-12) var(--space-24);
+  gap: var(--space-6);
+  padding: var(--space-6) var(--space-12);
   border-radius: var(--radius-full);
   background: var(--color-bg-inverse);
-  box-shadow: var(--shadow-ds);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
   color: var(--color-text-inverse);
-  font-size: 30px;
+  font-size: 15px;
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
@@ -367,6 +361,7 @@ a.lang__item:hover { opacity: 1; }
   transition: opacity 0.2s, transform 0.25s var(--ease);
 }
 .cursor-case.is-visible { opacity: 1; transform: translate3d(var(--x, 0), var(--y, 0), 0) translate(-50%, -50%) scale(1); }
+.cursor-case svg { width: 21px; height: 21px; }
 .has-custom-cursor .case { cursor: none; }
 
 /* Опыт работы */
@@ -438,8 +433,9 @@ a.job__company:hover { color: var(--color-text-accent); }
 }
 .contacts__links li:first-child a { border-top: 1px solid var(--color-border-subtle); }
 .contacts__links a span:first-child { flex: 1; }
-.contacts__arrow { font-size: 28px; font-weight: 400; transition: transform 0.3s var(--ease); }
-.contacts__links a:hover .contacts__arrow { transform: translate(4px, -4px); }
+.contacts__arrow { font-size: 28px; font-weight: 400; }
+.contacts__links a span { transition: opacity 0.2s; }
+.contacts__links a:hover span { opacity: 0.6; }
 
 /* 404 */
 .not-found { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; gap: var(--space-24); }
@@ -470,7 +466,6 @@ a.job__company:hover { color: var(--color-text-accent); }
   .visual-link { flex-direction: column; align-items: flex-start; }
   .cases { grid-template-columns: 1fr; gap: var(--space-20); }
   .case { flex-direction: row; align-items: flex-start; gap: var(--space-32); }
-  .case:hover { transform: translateY(-4px); }
   .case > * { flex: 1 1 0; min-width: 0; }
   .case__phones { height: auto; }
   .case__phones img { flex: 1 1 0; min-width: 0; width: 100%; height: auto; aspect-ratio: 9 / 20.7; }
