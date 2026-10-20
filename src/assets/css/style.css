@@ -351,13 +351,13 @@ a.lang__item:hover { opacity: 1; }
   left: 0;
   display: flex;
   align-items: center;
-  gap: var(--space-12);
-  padding: var(--space-12) var(--space-24);
+  gap: var(--space-6);
+  padding: var(--space-6) var(--space-12);
   border-radius: var(--radius-full);
   background: var(--color-bg-inverse);
-  box-shadow: var(--shadow-ds);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
   color: var(--color-text-inverse);
-  font-size: 30px;
+  font-size: 15px;
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
@@ -365,6 +365,7 @@ a.lang__item:hover { opacity: 1; }
   transition: opacity 0.2s, transform 0.25s var(--ease);
 }
 .cursor-case.is-visible { opacity: 1; transform: translate3d(var(--x, 0), var(--y, 0), 0) translate(-50%, -50%) scale(1); }
+.cursor-case svg { width: 21px; height: 21px; }
 .has-custom-cursor .case { cursor: none; }
 
 /* Опыт работы */
