@@ -310,7 +310,7 @@ a.lang__item:hover { opacity: 1; }
   box-shadow: var(--shadow-card);
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
-.case:hover { transform: scale(1.03); box-shadow: 0 24px 40px rgba(0, 0, 0, 0.45); }
+.case:hover, .js .case[data-reveal].is-visible:hover { transform: scale(1.03); box-shadow: 0 24px 40px rgba(0, 0, 0, 0.45); }
 .case__media {
   overflow: hidden;
   aspect-ratio: 604 / 320;
