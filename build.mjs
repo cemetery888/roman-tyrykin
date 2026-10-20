@@ -1,0 +1,47 @@
+// Сборка статического сайта в dist/. Без зависимостей: node build.mjs
+import { cp, mkdir, rm, writeFile } from 'node:fs/promises';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { layout } from './src/templates/layout.mjs';
+import { homePage } from './src/templates/home.mjs';
+import { notFoundPage } from './src/templates/not-found.mjs';
+import * as home from './src/data/home.mjs';
+
+const root = dirname(fileURLToPath(import.meta.url));
+const dist = join(root, 'dist');
+export const SITE_URL = 'https://cemetery888.github.io/roman-tyrykin/';
+
+// Маршруты: RU в корне, EN в /en/. path — без ведущего слэша, с завершающим.
+const pages = [
+  { path: '', lang: 'ru', alt: 'en/', render: (base) => homePage({ t: home.ru, base, links: home.links, cases: home.cases, caseHref: (slug) => `${base}${slug}/` }) , meta: home.ru },
+  { path: 'en/', lang: 'en', alt: '', render: (base) => homePage({ t: home.en, base, links: home.links, cases: home.cases, caseHref: (slug) => `${base}en/${slug}/` }), meta: home.en },
+];
+
+const baseFor = (path) => '../'.repeat(path.split('/').filter(Boolean).length) || './';
+
+await rm(dist, { recursive: true, force: true });
+await mkdir(dist, { recursive: true });
+await cp(join(root, 'src/assets'), join(dist, 'assets'), { recursive: true });
+
+for (const page of pages) {
+  const base = baseFor(page.path);
+  const html = layout({
+    lang: page.lang,
+    base,
+    title: page.meta.title,
+    description: page.meta.description,
+    og: page.meta.og,
+    url: SITE_URL + page.path,
+    altUrl: SITE_URL + page.alt,
+    altLang: page.lang === 'ru' ? 'en' : 'ru',
+    langSwitch: { ru: page.lang === 'ru' ? null : base + page.alt, en: page.lang === 'en' ? null : base + page.alt, label: page.meta.langLabel },
+    body: page.render(base),
+  });
+  await mkdir(join(dist, page.path), { recursive: true });
+  await writeFile(join(dist, page.path, 'index.html'), html);
+}
+
+// 404 для GitHub Pages: пути там абсолютные от корня проекта.
+await writeFile(join(dist, '404.html'), notFoundPage({ base: '/roman-tyrykin/' }));
+await writeFile(join(dist, '.nojekyll'), '');
+console.log(`Built ${pages.length} pages into dist/`);
