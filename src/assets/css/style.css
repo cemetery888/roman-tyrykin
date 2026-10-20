@@ -310,19 +310,15 @@ a.lang__item:hover { opacity: 1; }
   box-shadow: var(--shadow-card);
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
-.case:hover { transform: translateY(-6px); box-shadow: 0 24px 40px rgba(0, 0, 0, 0.45); }
+.case:hover { transform: scale(1.03); box-shadow: 0 24px 40px rgba(0, 0, 0, 0.45); }
 .case__media {
   overflow: hidden;
   aspect-ratio: 604 / 320;
   border-radius: var(--radius-8);
 }
-.case__media img, .case__phones img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
-.case:hover .case__media img { transform: scale(1.03); }
+.case__media img, .case__phones img { width: 100%; height: 100%; object-fit: cover; }
 .case__phones { display: flex; gap: var(--space-20); height: 320px; }
 .case__phones img { width: auto; flex: none; aspect-ratio: 9 / 20.7; border-radius: var(--radius-8); }
-.case--phones:hover .case__phones img { transform: translateY(-4px); }
-.case--phones:hover .case__phones img:nth-child(2) { transition-delay: 0.05s; }
-.case--phones:hover .case__phones img:nth-child(3) { transition-delay: 0.1s; }
 .case__body { display: flex; flex-direction: column; gap: var(--space-16); }
 .case__title { font-family: var(--font-mono-title); font-size: 28px; font-weight: 700; line-height: 1.45; }
 .case__text { font-size: 18px; line-height: 1.45; }
@@ -470,7 +466,6 @@ a.job__company:hover { color: var(--color-text-accent); }
   .visual-link { flex-direction: column; align-items: flex-start; }
   .cases { grid-template-columns: 1fr; gap: var(--space-20); }
   .case { flex-direction: row; align-items: flex-start; gap: var(--space-32); }
-  .case:hover { transform: translateY(-4px); }
   .case > * { flex: 1 1 0; min-width: 0; }
   .case__phones { height: auto; }
   .case__phones img { flex: 1 1 0; min-width: 0; width: 100%; height: auto; aspect-ratio: 9 / 20.7; }
