@@ -8,7 +8,7 @@
   position: fixed;
   z-index: 40;
   top: 36px;
-  left: max(var(--page-pad), calc((100vw - 1320px) / 2));
+  left: max(var(--page-pad), calc((100% - 1320px) / 2));
   display: flex;
   align-items: center;
   gap: var(--space-8);
@@ -24,11 +24,18 @@
 }
 .case-back:hover { transform: translateY(-3px); }
 .case-back svg { width: 20px; height: 20px; flex: none; }
-.to-top {
-  position: fixed;
+/* Обёртка-контейнер после подвала: кнопка липнет к низу экрана, а в конце страницы встаёт под подвал */
+.to-top-wrap {
+  position: sticky;
   z-index: 30;
-  right: max(var(--page-pad), calc((100vw - 1320px) / 2));
   bottom: 32px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 32px;
+  pointer-events: none;
+}
+.to-top {
+  pointer-events: auto;
   display: grid;
   place-items: center;
   width: 52px;
@@ -60,7 +67,8 @@
   .fig--t { display: none; }
   .fig--m { display: flex; }
   .case-back { top: 16px; height: 44px; font-size: 16px; }
-  .to-top { bottom: 16px; width: 44px; height: 44px; }
+  .to-top-wrap { bottom: 16px; margin-bottom: 16px; }
+  .to-top { width: 44px; height: 44px; }
   .page--case + .page--footer { padding-top: var(--space-28); }
 }
 @media (prefers-reduced-motion: reduce) {

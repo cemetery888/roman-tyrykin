@@ -13,5 +13,5 @@ ${content.replaceAll('{{base}}', base)}
 <div class="page page--footer">
   ${footer({ t, links })}
 </div>
-<button class="to-top" type="button" aria-label="${esc(t.toTop)}" data-to-top>${arrowUp}</button>`;
+<div class="page to-top-wrap"><button class="to-top" type="button" aria-label="${esc(t.toTop)}" data-to-top>${arrowUp}</button></div>`;
 }
