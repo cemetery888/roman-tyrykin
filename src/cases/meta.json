@@ -1,0 +1,92 @@
+{
+  "bitrix": {
+    "ru": {
+      "title": "1C-Битрикс",
+      "description": "Редизайн сайта лидирующей CMS в России и СНГ."
+    },
+    "en": {
+      "title": "1C-Bitrix",
+      "description": "Redesign of the leading CMS website in Russia and the CIS."
+    }
+  },
+  "dobovo": {
+    "ru": {
+      "title": "Добово",
+      "description": "Редизайн популярного сервиса краткосрочной аренды квартир."
+    },
+    "en": {
+      "title": "Dobovo",
+      "description": "Redesign of a popular short-term apartment rental service."
+    }
+  },
+  "pt-exchange": {
+    "ru": {
+      "title": "Pentor Exchange",
+      "description": "Редизайн мобильного приложения популярной сети пунктов обмена валют в Бангкоке."
+    },
+    "en": {
+      "title": "Pentor Exchange",
+      "description": "Redesign of the mobile application for a popular currency exchange network in Bangkok."
+    }
+  },
+  "top1bet": {
+    "ru": {
+      "title": "TOP1BET",
+      "description": "Админка для управления агентами и игроками для сайта с азартными играми и ставками на спорт."
+    },
+    "en": {
+      "title": "TOP1BET",
+      "description": "Admin panel for managing agents and players for a gambling and sports betting website."
+    }
+  },
+  "ihaveticket": {
+    "ru": {
+      "title": "I Have Ticket",
+      "description": "Дизайн сайта для лайв-стриминга концертов."
+    },
+    "en": {
+      "title": "I Have Ticket",
+      "description": "Website design for live streaming concerts."
+    }
+  },
+  "bitazza": {
+    "ru": {
+      "title": "Bitazza App",
+      "description": "Перепроектирование основных флоу мобильного приложения и редизайн ключевых экранов."
+    },
+    "en": {
+      "title": "Bitazza App",
+      "description": "Redesign of the main flows of the mobile application and redesign of key screens."
+    }
+  },
+  "triafly": {
+    "ru": {
+      "title": "Триафлай",
+      "description": "Перепроектирование low-code платформы для автоматизации аналитических процессов."
+    },
+    "en": {
+      "title": "Triafly",
+      "description": "Redesign of a low-code platform for automating analytical processes."
+    }
+  },
+  "eltex": {
+    "ru": {
+      "title": "Элтекс",
+      "description": "Интерфейсы управления сервисным маршрутизатором."
+    },
+    "en": {
+      "title": "Eltex",
+      "description": "Service router management interfaces."
+    }
+  },
+  "ui": {
+    "ru": {
+      "title": "Примеры визуала",
+      "description": "На главную"
+    },
+    "en": {
+      "title": "UI examples",
+      "description": "Let’s work"
+    }
+  }
+}

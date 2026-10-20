@@ -1,0 +1,68 @@
+/* Страницы кейсов. Утилиты ниже сгенерированы tools/cases/convert.mjs из макета */
+.page--case { padding-top: 124px; }
+.fig { display: flex; flex-direction: column; }
+.fig--t, .fig--m { display: none; }
+.case-back {
+  position: absolute;
+  z-index: 20;
+  top: 36px;
+  left: max(var(--page-pad), calc((100vw - 1320px) / 2));
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  height: 52px;
+  padding: var(--space-4) var(--space-24);
+  border: 1px solid #b2a0f8;
+  border-radius: var(--radius-8);
+  background: var(--color-bg-overlay);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  font-size: 18px;
+  transition: transform 0.25s var(--ease);
+}
+.case-back:hover { transform: translateY(-3px); }
+.case-back svg { width: 20px; height: 20px; flex: none; }
+.to-top {
+  position: fixed;
+  z-index: 30;
+  right: max(var(--page-pad), calc((100vw - 1320px) / 2));
+  bottom: 32px;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid #b2a0f8;
+  border-radius: var(--radius-8);
+  background: var(--color-bg-overlay);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.25s, transform 0.25s var(--ease), visibility 0.25s;
+}
+.to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { transform: translateY(-3px); }
+.to-top svg { width: 24px; height: 24px; }
+.page--case + .page--footer { padding-top: var(--space-60); }
+@media (max-width: 1199px) {
+  .page--case { padding-top: 100px; }
+  .fig--d { display: none; }
+  .fig--t { display: flex; }
+  .case-back { top: 24px; }
+}
+@media (max-width: 639px) {
+  .page--case { padding-top: 84px; }
+  .fig--t { display: none; }
+  .fig--m { display: flex; }
+  .case-back { top: 16px; height: 44px; font-size: 16px; }
+  .to-top { bottom: 16px; width: 44px; height: 44px; }
+  .page--case + .page--footer { padding-top: var(--space-28); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .case-back, .to-top { transition: none; }
+}
+/* Любой блок макета не шире своего родителя */
+:where(.fig div, .fig p, .fig ul, .fig ol, .fig a):not(:where(.absolute)) { max-width: 100%; min-width: 0; }

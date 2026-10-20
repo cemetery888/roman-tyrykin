@@ -41,4 +41,13 @@
       card.addEventListener('pointerleave', () => cursor.classList.remove('is-visible'));
     });
   }
+
+  // Кнопка «Наверх» на страницах кейсов
+  const toTop = document.querySelector('[data-to-top]');
+  if (toTop) {
+    const update = () => toTop.classList.toggle('is-visible', window.scrollY > window.innerHeight);
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
+  }
 })();

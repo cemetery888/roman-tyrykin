@@ -10,7 +10,7 @@ function langSwitch({ ru, en, label }) {
   return `<nav class="lang" aria-label="${esc(label)}">${item('ru', ru)}<span class="lang__divider" aria-hidden="true"></span>${item('en', en)}</nav>`;
 }
 
-export function layout({ lang, base, title, description, og, url, altUrl, altLang, langSwitch: ls, body, bodyClass = '' }) {
+export function layout({ lang, base, title, description, og, url, altUrl, altLang, langSwitch: ls, body, bodyClass = '', styles = [] }) {
   return `<!doctype html>
 <html lang="${lang}">
 <head>
@@ -35,6 +35,7 @@ export function layout({ lang, base, title, description, og, url, altUrl, altLan
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&family=Onest:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap">
 <link rel="stylesheet" href="${base}assets/css/style.css">
+${styles.map((href) => `<link rel="stylesheet" href="${base}${href}">`).join('\n')}
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="${bodyClass}">

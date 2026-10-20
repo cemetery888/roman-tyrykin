@@ -1,3 +1,6 @@
 dist/
 node_modules/
 .DS_Store
+tools/cases/.classes.html
+tools/cases/.input.css
+tools/cases/.tw.css

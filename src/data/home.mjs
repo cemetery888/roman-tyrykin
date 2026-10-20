@@ -59,6 +59,9 @@ export const ru = {
   footerTitle: ['Давайте', 'работать'],
   photoAlt: 'Роман Тырыкин',
   langLabel: 'Язык сайта',
+  back: 'На главную',
+  toTop: 'Наверх',
+  uiDescription: 'Примеры визуального дизайна интерфейсов.',
 };
 
 export const en = {
@@ -101,4 +104,7 @@ export const en = {
   footerTitle: ['Let’s', 'work'],
   photoAlt: 'Roman Tyrykin',
   langLabel: 'Site language',
+  back: 'To Homepage',
+  toTop: 'Back to top',
+  uiDescription: 'Examples of visual interface design.',
 };
