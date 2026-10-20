@@ -130,8 +130,8 @@ export default function Tablet() {
             Managing sub-accounts
           </p>
           <div className="[word-break:break-word] font-['Onest:Regular'] font-normal leading-[0] relative shrink-0 text-[18px] text-white w-full" data-node-id="1:3532">
-            <p className="leading-[1.35] mb-[12px]">Система построена в виде пирамиды. На самом её верху — админ, который может создавать шэрхолдеров, которые, в свою очередь создают агентов всех уровней и игроков. Агентов 3 уровня, Senior, Master Agent и просто Agent. Каждый агент может создавать пользователей ниже себя уровнем. Таким образом, Senior может создавать агентов двух уровней и игроков, а просто Agent — только игроков. Сами же игроки могут только логиниться на игровом сайте и, непосредственно, играть, что им и предназначено.</p>
-            <p className="leading-[1.35]">В таблице наглядно показано, кто кого может создавать. Смотреть таблицу нужно сверху налево.</p>
+            <p className="leading-[1.35] mb-[12px]">The system is structured like a pyramid. At the very top is the admin, who can create shareholders, who in turn create agents of all levels and players. There are 3 levels of agents: Senior, Master Agent, and simply Agent. Each agent can create users below their level. Thus, a Senior can create agents of two levels and players, while a simple Agent can only create players. Players can only log in to the gaming site and play, which is their intended purpose.</p>
+            <p className="leading-[1.35]">The table clearly shows who can create whom. The table should be viewed from top to left.</p>
           </div>
           <div className="aspect-[4052/3130] relative rounded-[12px] shrink-0 w-full" data-node-id="1:3533" data-name="image 142">
             <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[12px] size-full" src={imgImage142} />
@@ -151,8 +151,8 @@ export default function Tablet() {
             Punishments
           </p>
           <div className="[word-break:break-word] font-['Onest:Regular'] font-normal leading-[0] relative shrink-0 text-[18px] text-white w-full" data-node-id="1:3537">
-            <p className="leading-[1.35] mb-[12px]">Саб аккаунты нужны для делегирования определённых действий, например, создание пользователей, управление пополнением счёта и т.д.</p>
-            <p className="leading-[1.35]">Саб аккаунтам можно настроить определённые пермишны в соответствии с их ролями.</p>
+            <p className="leading-[1.35] mb-[12px]">Sub-accounts are needed for delegating certain actions, such as creating users, managing account top-ups, etc.</p>
+            <p className="leading-[1.35]">Specific permissions can be set for sub-accounts according to their roles.</p>
           </div>
           <div className="aspect-[1800/774] relative rounded-[12px] shrink-0 w-full" data-node-id="1:3538" data-name="image 243">
             <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[12px] size-full" src={imgImage243} />

@@ -212,15 +212,15 @@ export default function Mobile() {
             Exchange Rates
           </p>
           <p className="[word-break:break-word] font-['Onest:Regular'] font-normal leading-[0] min-w-full relative shrink-0 text-[0px] text-white w-[min-content]" data-node-id="1:2891">
-            <span className="leading-[1.35] text-[16px]">{`Исходя из подтверждённой гипотезы #1, пресловутые `}</span>
+            <span className="leading-[1.35] text-[16px]">{`Based on the confirmed hypothesis #1, the infamous `}</span>
             <span className="font-['Onest:Bold'] font-bold leading-[1.35] text-[16px]">Buying</span>
-            <span className="leading-[1.35] text-[16px]">{` и `}</span>
+            <span className="leading-[1.35] text-[16px]">{` and `}</span>
             <span className="font-['Onest:Bold'] font-bold leading-[1.35] text-[16px]">Selling</span>
-            <span className="leading-[1.35] text-[16px]">{` я заменил на более понятные `}</span>
+            <span className="leading-[1.35] text-[16px]">{` were replaced with the clearer `}</span>
             <span className="font-['Onest:Bold'] font-bold leading-[1.35] text-[16px]">We buy</span>
-            <span className="leading-[1.35] text-[16px]">{` и `}</span>
+            <span className="leading-[1.35] text-[16px]">{` and `}</span>
             <span className="font-['Onest:Bold'] font-bold leading-[1.35] text-[16px]">We sell</span>
-            <span className="leading-[1.35] text-[16px]">, чтобы было точно ясно, кто продаёт и покупает — именно обменные пункт, а не человек, совершающий обмен. Таким образом, на этом экране не остаётся места для непонимания.</span>
+            <span className="leading-[1.35] text-[16px]">{`, to make it clear who is selling and buying — specifically the exchange point, not the person making the exchange. Thus, there is no room for misunderstanding on this screen.`}</span>
           </p>
           <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0" data-node-id="1:2892">
             <div className="h-[711px] max-h-[799.875px] max-w-[360px] relative rounded-[11.063px] shrink-0 w-[320px]" data-node-id="1:2893" data-name="image 151">

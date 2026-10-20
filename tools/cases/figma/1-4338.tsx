@@ -275,29 +275,33 @@ export default function Tablet() {
             </p>
             <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full" data-node-id="1:4418">
               <div className="bg-[#302556] content-stretch flex flex-col items-start justify-center px-[12px] py-[20px] relative rounded-[12px] shrink-0 w-full" data-node-id="1:4419">
-                <p className="[word-break:break-word] font-['Onest:Bold'] font-bold leading-[1.35] relative shrink-0 text-[18px] text-white w-full" data-node-id="1:4420">
-                  Simplify registration — Reduce the number of required fields to lower the dropout rate during registration.
-                </p>
+                <p className="[word-break:break-word] font-['Onest:Regular'] font-normal leading-[0] relative shrink-0 text-[18px] text-white w-full" data-node-id="1:4420">
+<span className="font-['Onest:Bold'] font-bold leading-[1.35]">Simplify registration</span>
+<span className="leading-[1.35]">{` — Reduce the number of required fields to lower the dropout rate during registration.`}</span>
+</p>
               </div>
               <div className="bg-[#302556] content-stretch flex flex-col items-start justify-center px-[12px] py-[20px] relative rounded-[12px] shrink-0 w-full" data-node-id="1:4421">
-                <p className="[word-break:break-word] font-['Onest:Bold'] font-bold leading-[1.35] relative shrink-0 text-[18px] text-white w-full" data-node-id="1:4422">
-                  Make artists the main focus — Primarily show performers and the lineup, as they influence interest in the concert more than the ticket price.
-                </p>
+                <p className="[word-break:break-word] font-['Onest:Regular'] font-normal leading-[0] relative shrink-0 text-[18px] text-white w-full" data-node-id="1:4422">
+<span className="font-['Onest:Bold'] font-bold leading-[1.35]">Make artists the main focus</span>
+<span className="leading-[1.35]">{` — Primarily show performers and the lineup, as they influence interest in the concert more than the ticket price.`}</span>
+</p>
               </div>
               <div className="bg-[#302556] content-stretch flex flex-col items-start justify-center px-[12px] py-[20px] relative rounded-[12px] shrink-0 w-full" data-node-id="1:4423">
-                <p className="[word-break:break-word] font-['Onest:Bold'] font-bold leading-[1.35] relative shrink-0 text-[18px] text-white w-full" data-node-id="1:4424">
-                  Add concert recordings — Allow buying tickets and watching concerts after the live broadcast ends.
-                </p>
+                <p className="[word-break:break-word] font-['Onest:Regular'] font-normal leading-[0] relative shrink-0 text-[18px] text-white w-full" data-node-id="1:4424">
+<span className="font-['Onest:Bold'] font-bold leading-[1.35]">Add concert recordings</span>
+<span className="leading-[1.35]">{` — Allow buying tickets and watching concerts after the live broadcast ends.`}</span>
+</p>
               </div>
               <div className="bg-[#302556] content-stretch flex flex-col items-start justify-center px-[12px] py-[20px] relative rounded-[12px] shrink-0 w-full" data-node-id="1:4425">
-                <p className="[word-break:break-word] font-['Onest:Bold'] font-bold leading-[1.35] relative shrink-0 text-[16px] text-white w-full" data-node-id="1:4426">
-                  Add VIP tickets with merchandise — Create an additional ticket format for the most interested audience.
-                </p>
+                <p className="[word-break:break-word] font-['Onest:Regular'] font-normal leading-[0] relative shrink-0 text-[18px] text-white w-full" data-node-id="1:4426">
+<span className="font-['Onest:Bold'] font-bold leading-[1.35]">Add VIP tickets with merchandise</span>
+<span className="leading-[1.35]">{` — Create an additional ticket format for the most interested audience.`}</span>
+</p>
               </div>
               <div className="bg-[#302556] content-stretch flex flex-col items-start justify-center px-[12px] py-[20px] relative rounded-[12px] shrink-0 w-full" data-node-id="1:4427">
                 <p className="[word-break:break-word] font-['Onest:Regular'] font-normal leading-[0] relative shrink-0 text-[18px] text-white w-full" data-node-id="1:4428">
-                  <span className="font-['Onest:Bold'] font-bold leading-[1.35]">{`Добавить обратный отсчёт до концерта `}</span>
-                  <span className="leading-[1.35]">— Показывать время до начала трансляции на странице билета, дополнительно стимулируя покупку перед стартом.</span>
+                  <span className="font-['Onest:Bold'] font-bold leading-[1.35]">Add countdown to the concert</span>
+                  <span className="leading-[1.35]">{` — Show time until the broadcast starts on the ticket page, encouraging purchase before the start.`}</span>
                 </p>
               </div>
             </div>
