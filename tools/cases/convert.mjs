@@ -63,6 +63,8 @@ function fixClasses(node, bp, parent) {
     .replace(/font-\['Space_Mono:[^']*'\]/g, "font-['Space_Mono']");
   // «Растянуть по ширине» в Figma выгружается как w-[min-content] min-w-full — это просто w-full
   if (/ w-\[min-content\] /.test(cls) && / min-w-full /.test(cls)) cls = cls.replace(/ w-\[min-content\] /, ' w-full ').replace(/ min-w-full /, ' ');
+  // Толщины рамок, которых нет в Tailwind по умолчанию (border-3 и т.п.)
+  cls = cls.replace(/ border(-[trblxy])?-(\d+) /g, (m, side, n) => (['0', '2', '4', '8'].includes(n) ? m : ` border${side || ''}-[${n}px] `));
   const w = px(cls, 'w'); const hgt = px(cls, 'h');
   if (w && w >= CONTENT_W[bp] - 1) cls = cls.replace(/ w-\[[\d.]+px\] /, ' w-full ');
   if (hgt && hgt > 40 && !/ absolute /.test(cls)) {

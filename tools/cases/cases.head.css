@@ -1,10 +1,12 @@
 /* Страницы кейсов. Утилиты ниже сгенерированы tools/cases/convert.mjs из макета */
 .page--case { padding-top: 124px; }
 .fig { display: flex; flex-direction: column; }
+/* Без preflight у рамок нет нулевой ширины по умолчанию: border-l-2 давал рамку со всех сторон */
+:where(.fig) *, :where(.fig) *::before, :where(.fig) *::after { border: 0 solid; }
 .fig--t, .fig--m { display: none; }
 .case-back {
-  position: absolute;
-  z-index: 20;
+  position: fixed;
+  z-index: 40;
   top: 36px;
   left: max(var(--page-pad), calc((100vw - 1320px) / 2));
   display: flex;
