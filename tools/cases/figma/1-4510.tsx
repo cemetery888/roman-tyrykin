@@ -254,32 +254,32 @@ export default function Mobile() {
             <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full" data-node-id="1:4589">
               <div className="bg-[#302556] content-stretch flex flex-col items-start justify-center p-[12px] relative rounded-[8px] shrink-0 w-full" data-node-id="1:4590">
                 <p className="[word-break:break-word] font-['Onest:Regular'] font-normal leading-[0] relative shrink-0 text-[0px] text-white w-full" data-node-id="1:4591">
-                  <span className="font-['Onest:Bold'] font-bold leading-[1.35] text-[16px]">Упростить регистрацию</span>
-                  <span className="leading-[1.35] text-[16px]">{` — Сократить количество обязательных полей, чтобы снизить число отказов при регистрации.`}</span>
+                  <span className="font-['Onest:Bold'] font-bold leading-[1.35] text-[16px]">Simplify registration</span>
+                  <span className="leading-[1.35] text-[16px]">{` — Reduce the number of required fields to lower the dropout rate during registration.`}</span>
                 </p>
               </div>
               <div className="bg-[#302556] content-stretch flex flex-col items-start justify-center p-[12px] relative rounded-[8px] shrink-0 w-full" data-node-id="1:4592">
                 <p className="[word-break:break-word] font-['Onest:Regular'] font-normal leading-[0] relative shrink-0 text-[0px] text-white w-full" data-node-id="1:4593">
-                  <span className="font-['Onest:Bold'] font-bold leading-[1.35] text-[16px]">Сделать артистов главным акцентом</span>
-                  <span className="leading-[1.35] text-[16px]">{` — В первую очередь показывать исполнителей и лайнап, поскольку они сильнее влияют на интерес к концерту, чем цена билета.`}</span>
+                  <span className="font-['Onest:Bold'] font-bold leading-[1.35] text-[16px]">Make artists the main focus</span>
+                  <span className="leading-[1.35] text-[16px]">{` — Primarily show performers and the lineup, as they influence interest in the concert more than the ticket price.`}</span>
                 </p>
               </div>
               <div className="bg-[#302556] content-stretch flex flex-col items-start justify-center p-[12px] relative rounded-[8px] shrink-0 w-full" data-node-id="1:4594">
                 <p className="[word-break:break-word] font-['Onest:Regular'] font-normal leading-[0] relative shrink-0 text-[0px] text-white w-full" data-node-id="1:4595">
-                  <span className="font-['Onest:Bold'] font-bold leading-[1.35] text-[16px]">{`Добавить просмотр концертов в записи `}</span>
-                  <span className="leading-[1.35] text-[16px]">— Дать возможность купить билет и посмотреть концерт после завершения прямой трансляции.</span>
+                  <span className="font-['Onest:Bold'] font-bold leading-[1.35] text-[16px]">Add concert recordings</span>
+                  <span className="leading-[1.35] text-[16px]">{` — Allow buying tickets and watching concerts after the live broadcast ends.`}</span>
                 </p>
               </div>
               <div className="bg-[#302556] content-stretch flex flex-col items-start justify-center p-[12px] relative rounded-[8px] shrink-0 w-full" data-node-id="1:4596">
                 <p className="[word-break:break-word] font-['Onest:Regular'] font-normal leading-[0] relative shrink-0 text-[0px] text-white w-full" data-node-id="1:4597">
-                  <span className="font-['Onest:Bold'] font-bold leading-[1.35] text-[16px]">{`Добавить VIP-билеты с мерчем `}</span>
-                  <span className="leading-[1.35] text-[16px]">— Создать дополнительный формат билета для наиболее заинтересованной аудитории.</span>
+                  <span className="font-['Onest:Bold'] font-bold leading-[1.35] text-[16px]">Add VIP tickets with merchandise</span>
+                  <span className="leading-[1.35] text-[16px]">{` — Create an additional ticket format for the most interested audience.`}</span>
                 </p>
               </div>
               <div className="bg-[#302556] content-stretch flex flex-col items-start justify-center p-[12px] relative rounded-[8px] shrink-0 w-full" data-node-id="1:4598">
                 <p className="[word-break:break-word] font-['Onest:Regular'] font-normal leading-[0] relative shrink-0 text-[0px] text-white w-full" data-node-id="1:4599">
-                  <span className="font-['Onest:Bold'] font-bold leading-[1.35] text-[16px]">{`Добавить обратный отсчёт до концерта `}</span>
-                  <span className="leading-[1.35] text-[16px]">— Показывать время до начала трансляции на странице билета, дополнительно стимулируя покупку перед стартом.</span>
+                  <span className="font-['Onest:Bold'] font-bold leading-[1.35] text-[16px]">Add countdown to the concert</span>
+                  <span className="leading-[1.35] text-[16px]">{` — Show time until the broadcast starts on the ticket page, encouraging purchase before the start.`}</span>
                 </p>
               </div>
             </div>
