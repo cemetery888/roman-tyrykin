@@ -437,8 +437,9 @@ a.job__company:hover { color: var(--color-text-accent); }
 }
 .contacts__links li:first-child a { border-top: 1px solid var(--color-border-subtle); }
 .contacts__links a span:first-child { flex: 1; }
-.contacts__arrow { font-size: 28px; font-weight: 400; transition: transform 0.3s var(--ease); }
-.contacts__links a:hover .contacts__arrow { transform: translate(4px, -4px); }
+.contacts__arrow { font-size: 28px; font-weight: 400; }
+.contacts__links a span { transition: opacity 0.2s; }
+.contacts__links a:hover span { opacity: 0.6; }
 
 /* 404 */
 .not-found { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; gap: var(--space-24); }
