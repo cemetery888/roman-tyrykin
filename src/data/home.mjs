@@ -32,6 +32,7 @@ export const ru = {
   lead: 'Продуктовый дизайнер с опытом более 10 лет.',
   leadAccent: 'Делаю дизайн, который работает.',
   contacts: 'Контакты',
+  nav: { label: 'Разделы', about: 'Обо мне', cases: 'Кейсы', experience: 'Опыт', contacts: 'Контакты' },
   cv: 'CV',
   aboutTitle: 'Обо мне',
   about: [
@@ -77,6 +78,7 @@ export const en = {
   lead: 'A product designer with more than 10 years of experience.',
   leadAccent: 'I design things that work.',
   contacts: 'Contacts',
+  nav: { label: 'Sections', about: 'About me', cases: 'Case Studies', experience: 'Experience', contacts: 'Contacts' },
   cv: 'CV',
   aboutTitle: 'About me',
   about: [

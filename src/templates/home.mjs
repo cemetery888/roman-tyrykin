@@ -2,6 +2,13 @@ import { esc, rich } from './layout.mjs';
 
 const ext = 'target="_blank" rel="noopener"';
 
+// Навигация по разделам: десктоп и планшет, на мобильном скрыта
+function nav({ t }) {
+  const items = [['about', t.nav.about], ['cases', t.nav.cases], ['experience', t.nav.experience], ['contacts', t.nav.contacts]]
+    .map(([id, label]) => `<li><a class="nav__link" href="#${id}" data-scroll>${esc(label)}</a></li>`).join('');
+  return `<nav class="nav" aria-label="${esc(t.nav.label)}"><ul class="nav__list">${items}</ul></nav>`;
+}
+
 function hero({ t, base, links }) {
   return `<section class="hero">
   <div class="hero__text" data-reveal>
@@ -30,7 +37,7 @@ function about({ t, base }) {
       <img src="${base}assets/img/asterisk.svg" width="28" height="28" alt="">
       <p>${rich(text)}</p>
     </li>`).join('\n    ');
-  return `<section class="section" aria-labelledby="about-title">
+  return `<section class="section" id="about" aria-labelledby="about-title">
   <h2 class="section__title" id="about-title" data-reveal>${esc(t.aboutTitle)}</h2>
   <ul class="about panel">
     ${items}
@@ -55,7 +62,7 @@ function caseCard({ c, t, base, href }) {
 
 function casesSection({ t, base, cases, caseHref }) {
   const uiHref = caseHref('ui');
-  return `<section class="section" aria-labelledby="cases-title">
+  return `<section class="section" id="cases" aria-labelledby="cases-title">
   <div class="section__head" data-reveal>
     <h2 class="section__title" id="cases-title">${esc(t.casesTitle)}</h2>
     <p class="visual-link">
@@ -78,7 +85,7 @@ function experience({ t }) {
       </div>
       <span class="job__period">${esc(j.period)}</span>
     </li>`).join('\n    ');
-  return `<section class="section" aria-labelledby="exp-title">
+  return `<section class="section" id="experience" aria-labelledby="exp-title">
   <h2 class="section__title" id="exp-title" data-reveal>${esc(t.experienceTitle)}</h2>
   <ol class="jobs panel">
     ${rows}
@@ -102,7 +109,8 @@ export function footer({ t, links }) {
 }
 
 export function homePage({ t, base, links, cases, caseHref }) {
-  return `<main class="page page--home">
+  return `${nav({ t })}
+<main class="page page--home">
 ${hero({ t, base, links })}
 ${about({ t, base })}
 ${casesSection({ t, base, cases, caseHref })}
