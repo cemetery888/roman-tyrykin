@@ -49,6 +49,8 @@ const baseFor = (path) => '../'.repeat(path.split('/').filter(Boolean).length) |
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
 await cp(join(root, 'src/assets'), join(dist, 'assets'), { recursive: true });
+// Браузеры без поддержки SVG-иконок ищут /favicon.ico в корне.
+await cp(join(root, 'src/assets/img/favicon.ico'), join(dist, 'favicon.ico'));
 
 for (const page of pages) {
   const base = baseFor(page.path);
