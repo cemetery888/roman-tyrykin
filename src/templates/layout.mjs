@@ -25,7 +25,7 @@ export function layout({ lang, base, title, description, og, url, altUrl, altLan
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${url}">
-<meta property="og:image" content="https://cemetery888.github.io/roman-tyrykin/assets/img/${og}">
+<meta property="og:image" content="https://roman-tyrykin.ru/assets/img/${og}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
