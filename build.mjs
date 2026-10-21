@@ -11,7 +11,7 @@ import * as home from './src/data/home.mjs';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const dist = join(root, 'dist');
-export const SITE_URL = 'https://cemetery888.github.io/roman-tyrykin/';
+export const SITE_URL = 'https://roman-tyrykin.ru/';
 
 // Маршруты: RU в корне, EN в /en/. path — без ведущего слэша, с завершающим.
 const pages = [
@@ -71,6 +71,6 @@ for (const page of pages) {
 }
 
 // 404 для GitHub Pages: пути там абсолютные от корня проекта.
-await writeFile(join(dist, '404.html'), notFoundPage({ base: '/roman-tyrykin/' }));
+await writeFile(join(dist, '404.html'), notFoundPage({ base: '/' }));
 await writeFile(join(dist, '.nojekyll'), '');
 console.log(`Built ${pages.length} pages into dist/`);
