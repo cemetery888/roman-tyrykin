@@ -93,6 +93,13 @@ function experience({ t }) {
 </section>`;
 }
 
+const arrowUp = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+// Кнопка «Наверх»: появляется после первого экрана (main.js)
+export function toTop({ t }) {
+  return `<div class="page to-top-wrap"><button class="to-top" type="button" aria-label="${esc(t.toTop)}" data-to-top>${arrowUp}</button></div>`;
+}
+
 export function footer({ t, links }) {
   const items = [
     ['Telegram', links.telegram],
@@ -119,5 +126,6 @@ ${experience({ t })}
 <div class="page page--footer">
   ${footer({ t, links })}
 </div>
+${toTop({ t })}
 <div class="cursor-case" aria-hidden="true"><span>${esc(t.caseCursor)}</span><svg width="42" height="42" viewBox="0 0 42 42"><path d="M36.13 21.7 24.32 33.51a.98.98 0 0 1-1.39-1.39l10.13-10.13H6.56a.98.98 0 1 1 0-1.97h26.5L22.93 9.88a.98.98 0 0 1 1.39-1.39L36.13 20.3a.98.98 0 0 1 0 1.4Z" fill="#141414"/></svg></div>`;
 }

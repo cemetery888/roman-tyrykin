@@ -78,9 +78,9 @@ export const en = {
   lead: 'A product designer with more than 10 years of experience.',
   leadAccent: 'I design things that work.',
   contacts: 'Contacts',
-  nav: { label: 'Sections', about: 'About me', cases: 'Case Studies', experience: 'Experience', contacts: 'Contacts' },
+  nav: { label: 'Sections', about: 'About Me', cases: 'Case Studies', experience: 'Experience', contacts: 'Contacts' },
   cv: 'CV',
-  aboutTitle: 'About me',
+  aboutTitle: 'About Me',
   about: [
     'I design complex **B2B** and **B2C** products, including admin panels, internal tools, and **data-intensive enterprise systems**.',
     '**Balance** user needs, business goals, and technical constraints to create **practical product solutions**.',
