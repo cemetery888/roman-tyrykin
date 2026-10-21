@@ -87,7 +87,7 @@ export const en = {
     'Experienced in UX research, design systems, product analytics, and supporting implementation **through to release**.',
     'Leverage **AI** to generate and validate UX hypotheses, explore edge cases, and **accelerate** design workflows.',
   ],
-  casesTitle: 'Case studies',
+  casesTitle: 'Case Studies',
   visualQuestion: 'Need to look at the UI?',
   visualLink: 'Come here',
   caseCursor: 'View case study',
