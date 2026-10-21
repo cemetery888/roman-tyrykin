@@ -35,7 +35,7 @@ export function layout({ lang, base, title, description, og, url, altUrl, altLan
 <link rel="apple-touch-icon" href="${base}assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&family=Onest:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Onest:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap">
 <link rel="stylesheet" href="${base}assets/css/style.css">
 ${styles.map((href) => `<link rel="stylesheet" href="${base}${href}">`).join('\n')}
 <script>document.documentElement.classList.add('js')</script>

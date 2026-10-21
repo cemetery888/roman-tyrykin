@@ -153,6 +153,28 @@ a.lang__item:hover { opacity: 1; }
 .lang__item--active { font-weight: 700; }
 .lang__divider { width: 1px; height: 24px; background: var(--color-text-primary); opacity: 0.4; }
 
+/* Навигация по разделам главной (в макете: Plex Mono 20, белый 50%, ховер 100%) */
+.nav {
+  position: absolute;
+  z-index: 20;
+  top: 36px;
+  left: max(var(--page-pad), calc((100vw - 1320px) / 2));
+  display: flex;
+  align-items: center;
+  height: 52px;
+}
+.nav__list { display: flex; gap: var(--space-40); }
+.nav__link {
+  display: block;
+  font-family: var(--font-mono-title);
+  font-size: 20px;
+  line-height: 26px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.2s;
+}
+.nav__link:hover { color: var(--color-text-primary); }
+.section { scroll-margin-top: var(--space-24); }
+
 /* Кнопки */
 .btn {
   display: inline-flex;
@@ -456,6 +478,8 @@ a.job__company:hover { color: var(--color-text-accent); }
     --title-gap: var(--space-32);
   }
   .lang { top: 24px; }
+  .nav { top: 24px; }
+  .nav__list { gap: var(--space-28); }
   .hero { flex-direction: column; align-items: stretch; gap: var(--space-56); padding-top: var(--space-64); }
   .hero__text { gap: var(--space-32); }
   .hero__name { font-size: 80px; }
@@ -497,6 +521,7 @@ a.job__company:hover { color: var(--color-text-accent); }
     --title-gap: var(--space-20);
   }
   .lang { top: 16px; height: 44px; }
+  .nav { display: none; }
   .hero { gap: var(--space-40); padding-top: 0; }
   .hero__text { gap: var(--space-24); }
   .hero__name { font-size: 56px; }
