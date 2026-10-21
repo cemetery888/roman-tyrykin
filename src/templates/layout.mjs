@@ -30,7 +30,9 @@ export function layout({ lang, base, title, description, og, url, altUrl, altLan
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#141414">
+<link rel="icon" href="${base}assets/img/favicon.ico" sizes="any">
 <link rel="icon" href="${base}assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="${base}assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&family=Onest:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap">
