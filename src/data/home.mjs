@@ -78,7 +78,7 @@ export const en = {
   lead: 'A product designer with more than 10 years of experience.',
   leadAccent: 'I design things that work.',
   contacts: 'Contacts',
-  nav: { label: 'Sections', about: 'About Me', cases: 'Case Studies', experience: 'Experience', contacts: 'Contacts' },
+  nav: { label: 'Sections', about: 'About me', cases: 'Case Studies', experience: 'Experience', contacts: 'Contacts' },
   cv: 'CV',
   aboutTitle: 'About Me',
   about: [
