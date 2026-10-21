@@ -9,7 +9,7 @@ function hero({ t, base, links }) {
     <p class="hero__lead">${esc(t.lead)} <strong class="accent">${esc(t.leadAccent)}</strong></p>
     <div class="hero__actions">
       <a class="btn btn--filled" href="#contacts" data-scroll>${esc(t.contacts)}</a>
-      <a class="btn btn--outline" href="${links.cv}" ${ext}>${esc(t.cv)}</a>
+      <a class="btn btn--outline" href="${links.cv[t.lang]}" ${ext}>${esc(t.cv)}</a>
     </div>
   </div>
   <div class="viewfinder" data-reveal>
@@ -91,7 +91,7 @@ export function footer({ t, links }) {
     ['Telegram', links.telegram],
     ['Email', links.email],
     ['LinkedIn', links.linkedin],
-    ['CV', links.cv],
+    ['CV', links.cv[t.lang]],
   ].map(([label, href]) => `<li><a href="${href}" ${href.startsWith('mailto:') ? '' : ext}><span>${label}</span><span class="contacts__arrow" aria-hidden="true">↗</span></a></li>`).join('\n      ');
   return `<footer class="contacts" id="contacts" data-reveal>
     <h2 class="contacts__title">${t.footerTitle.map(esc).join(' <br class="contacts__br">')}</h2>
