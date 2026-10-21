@@ -5,7 +5,11 @@ export const links = {
   telegram: 'https://t.me/bslt777',
   email: 'mailto:roman-xt@ya.ru',
   linkedin: 'https://www.linkedin.com/in/romantyrykin/',
-  cv: 'https://drive.google.com/file/d/1dLAbhlt6F31C2GcOhBuqI8fjYoDFft10',
+  // CV для каждого языка свой.
+  cv: {
+    ru: 'https://drive.google.com/file/d/1dLAbhlt6F31C2GcOhBuqI8fjYoDFft10',
+    en: 'https://drive.google.com/file/d/1OiT3fXoFLfmY--vQ4UXAJ67WfevUVoi_',
+  },
 };
 
 // Порядок карточек как в макете.
