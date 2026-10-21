@@ -25,36 +25,6 @@
 .case-back:hover { transform: translateY(-3px); }
 .case-back svg { width: 20px; height: 20px; flex: none; }
 /* Обёртка-контейнер после подвала: кнопка липнет к низу экрана, а в конце страницы встаёт под подвал */
-.to-top-wrap {
-  position: sticky;
-  z-index: 30;
-  bottom: 32px;
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 32px;
-  pointer-events: none;
-}
-.to-top {
-  pointer-events: auto;
-  display: grid;
-  place-items: center;
-  width: 52px;
-  height: 52px;
-  border: 1px solid #b2a0f8;
-  border-radius: var(--radius-8);
-  background: var(--color-bg-overlay);
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
-  color: var(--color-text-primary);
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(8px);
-  transition: opacity 0.25s, transform 0.25s var(--ease), visibility 0.25s;
-}
-.to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
-.to-top:hover { transform: translateY(-3px); }
-.to-top svg { width: 24px; height: 24px; }
 .page--case + .page--footer { padding-top: var(--space-60); }
 @media (max-width: 1199px) {
   .page--case { padding-top: 100px; }
@@ -67,12 +37,10 @@
   .fig--t { display: none; }
   .fig--m { display: flex; }
   .case-back { top: 16px; height: 44px; font-size: 16px; }
-  .to-top-wrap { bottom: 16px; margin-bottom: 16px; }
-  .to-top { width: 44px; height: 44px; }
   .page--case + .page--footer { padding-top: var(--space-28); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .case-back, .to-top { transition: none; }
+  .case-back { transition: none; }
 }
 /* Любой блок макета не шире своего родителя */
 :where(.fig div, .fig p, .fig ul, .fig ol, .fig a):not(:where(.absolute)) { max-width: 100%; min-width: 0; }

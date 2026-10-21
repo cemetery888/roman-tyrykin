@@ -175,6 +175,38 @@ a.lang__item:hover { opacity: 1; }
 .nav__link:hover { color: var(--color-text-primary); }
 .section { scroll-margin-top: var(--space-24); }
 
+/* Кнопка «Наверх» (главная и кейсы) */
+.to-top-wrap {
+  position: sticky;
+  z-index: 30;
+  bottom: 32px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 32px;
+  pointer-events: none;
+}
+.to-top {
+  pointer-events: auto;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid #b2a0f8;
+  border-radius: var(--radius-8);
+  background: var(--color-bg-overlay);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.25s, transform 0.25s var(--ease), visibility 0.25s;
+}
+.to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { transform: translateY(-3px); }
+.to-top svg { width: 24px; height: 24px; }
+
 /* Кнопки */
 .btn {
   display: inline-flex;
@@ -522,6 +554,8 @@ a.job__company:hover { color: var(--color-text-accent); }
   }
   .lang { top: 16px; height: 44px; }
   .nav { display: none; }
+  .to-top-wrap { bottom: 16px; margin-bottom: 16px; }
+  .to-top { width: 44px; height: 44px; }
   .hero { gap: var(--space-40); padding-top: 0; }
   .hero__text { gap: var(--space-24); }
   .hero__name { font-size: 56px; }
@@ -561,6 +595,7 @@ a.job__company:hover { color: var(--color-text-accent); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .to-top { transition: none; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js [data-reveal] { opacity: 1; transform: none; }
 }
