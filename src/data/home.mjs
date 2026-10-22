@@ -7,8 +7,8 @@ export const links = {
   linkedin: 'https://www.linkedin.com/in/romantyrykin/',
   // CV для каждого языка свой.
   cv: {
-    ru: 'https://drive.google.com/file/d/1dLAbhlt6F31C2GcOhBuqI8fjYoDFft10',
-    en: 'https://drive.google.com/file/d/1OiT3fXoFLfmY--vQ4UXAJ67WfevUVoi_',
+    ru: 'https://drive.google.com/file/d/12tibVBPPEDdNwxy2G4IeWOc_dJBsS4Ch',
+    en: 'https://drive.google.com/file/d/18SMopLLSLRYZx2YaP9NRSiI8FVKzP9Nj',
   },
 };
 
