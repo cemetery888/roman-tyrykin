@@ -110,14 +110,6 @@ export default function Mobile() {
             <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgCover} />
           </div>
           <div className="[word-break:break-word] bg-[#262626] content-stretch flex flex-col gap-[20px] items-start leading-[1.35] px-[16px] py-[12px] relative rounded-[8px] shrink-0 text-[16px] text-white w-full whitespace-nowrap" data-node-id="1:1528">
-            <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0" data-node-id="1:1529">
-              <p className="font-['Onest:Bold'] font-bold relative shrink-0" data-node-id="1:1530">
-                Компания
-              </p>
-              <p className="font-['Onest:Regular'] font-normal relative shrink-0" data-node-id="1:1531">
-                Turum-burum
-              </p>
-            </div>
             <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0" data-node-id="1:1532">
               <p className="font-['Onest:Bold'] font-bold relative shrink-0" data-node-id="1:1533">
                 Команда

@@ -80,14 +80,6 @@ export default function Mobile() {
             <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgCover} />
           </div>
           <div className="[word-break:break-word] bg-[#262626] content-stretch flex flex-col gap-[20px] items-start leading-[1.35] px-[16px] py-[12px] relative rounded-[8px] shrink-0 text-[16px] text-white w-full whitespace-nowrap" data-node-id="1:2109">
-            <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0" data-node-id="1:2110">
-              <p className="font-['Onest:Bold'] font-bold relative shrink-0" data-node-id="1:2111">
-                Company
-              </p>
-              <p className="font-['Onest:Regular'] font-normal relative shrink-0" data-node-id="1:2112">
-                Turum-burum
-              </p>
-            </div>
             <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0" data-node-id="1:2113">
               <p className="font-['Onest:Bold'] font-bold relative shrink-0" data-node-id="1:2114">
                 Role
