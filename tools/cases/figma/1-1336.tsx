@@ -110,14 +110,6 @@ export default function Tablet() {
             <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgCover} />
           </div>
           <div className="[word-break:break-word] bg-[#262626] content-stretch flex gap-[40px] items-start leading-[1.35] px-[24px] py-[20px] relative rounded-[16px] shrink-0 text-[18px] text-white w-full whitespace-nowrap" data-node-id="1:1351">
-            <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0" data-node-id="1:1352">
-              <p className="font-['Onest:Bold'] font-bold relative shrink-0" data-node-id="1:1353">
-                Компания
-              </p>
-              <p className="font-['Onest:Regular'] font-normal relative shrink-0" data-node-id="1:1354">
-                Turum-burum
-              </p>
-            </div>
             <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0" data-node-id="1:1355">
               <p className="font-['Onest:Bold'] font-bold relative shrink-0" data-node-id="1:1356">
                 Команда
