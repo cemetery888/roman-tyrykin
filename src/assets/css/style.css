@@ -651,8 +651,7 @@ a.job__company:hover { color: var(--color-text-accent); }
   transform: perspective(1200px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.03);
 }
 .case.is-tilting, .js .case[data-reveal].is-visible.is-tilting { transition: transform 0.15s linear, box-shadow 0.4s var(--ease); }
-.case__media img, .case__phones img { transition: transform 0.5s var(--ease); }
-.case:hover .case__media img { transform: translate(var(--px), var(--py)) scale(1.08); }
+.case__phones img { transition: transform 0.5s var(--ease); }
 .case:hover .case__phones img { transform: translate(calc(var(--px) * 0.5), calc(var(--py) * 0.5)); }
 
 /* 4. Опыт работы: линия прорисовывается при скролле */
