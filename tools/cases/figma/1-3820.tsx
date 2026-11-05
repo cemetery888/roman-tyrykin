@@ -329,9 +329,9 @@ export default function Tablet() {
                 </p>
               </div>
               <div className="bg-[#302556] content-stretch flex flex-col items-start justify-center px-[12px] py-[20px] relative rounded-[12px] shrink-0 w-full" data-node-id="1:3906">
-                <p className="[word-break:break-word] font-['Onest:Regular'] font-normal leading-[0] relative shrink-0 text-[0px] text-white w-full" data-node-id="1:3907">
+                <p className="[word-break:break-word] font-['Onest:Regular'] font-normal leading-[0] relative shrink-0 text-[18px] text-white w-full" data-node-id="1:3907">
                   <span className="font-['Onest:Bold'] font-bold leading-[1.35]">{`Добавить VIP-билеты с мерчем `}</span>
-                  <span className="leading-[1.35] text-[16px]">— Создать дополнительный формат билета для наиболее заинтересованной аудитории.</span>
+                  <span className="leading-[1.35]">— Создать дополнительный формат билета для наиболее заинтересованной аудитории.</span>
                 </p>
               </div>
               <div className="bg-[#302556] content-stretch flex flex-col items-start justify-center px-[12px] py-[20px] relative rounded-[12px] shrink-0 w-full" data-node-id="1:3908">
