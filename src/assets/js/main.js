@@ -80,6 +80,17 @@
     });
   }
 
+  // «Обо мне»: подсветка следует за курсором
+  if (hoverPointer && !reduceMotion) {
+    document.querySelectorAll('[data-spot]').forEach((item) => {
+      item.addEventListener('pointermove', (event) => {
+        const r = item.getBoundingClientRect();
+        item.style.setProperty('--mx', `${event.clientX - r.left}px`);
+        item.style.setProperty('--my', `${event.clientY - r.top}px`);
+      });
+    });
+  }
+
   // Появление по скроллу для эффектов ниже
   const onVisible = (els, fn, options = { threshold: 0.4 }) => {
     if (!els.length) return;
