@@ -247,8 +247,6 @@ a.lang__item:hover { opacity: 1; }
 }
 .hero__lead { font-size: 64px; font-weight: 600; line-height: 1.12; }
 .hero__lead .accent { display: inline; font-weight: inherit; }
-/* В EN на десктопе акцент с новой строки, как в макете. */
-html[lang="en"] .hero__lead .accent::before { content: ''; display: block; }
 .hero__actions { display: flex; gap: var(--space-16); }
 
 /* Фото в рамке-видоискателе */
@@ -519,7 +517,6 @@ a.job__company:hover { color: var(--color-text-accent); }
   .hero__text { gap: 36px; }
   .hero__name { font-size: 24px; }
   .hero__lead { font-size: 44px; }
-  html[lang="en"] .hero__lead .accent::before { display: none; }
   .viewfinder { width: 100%; height: 480px; }
   .about { grid-template-columns: 1fr; }
   .about__item { padding: 36px var(--space-20); --line-r: transparent !important; }
