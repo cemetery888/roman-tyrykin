@@ -91,6 +91,16 @@
     });
   }
 
+  // Футер: светлое пятно следует за курсором
+  const glow = document.querySelector('[data-glow]');
+  if (glow && hoverPointer && !reduceMotion) {
+    glow.addEventListener('pointermove', (event) => {
+      const r = glow.getBoundingClientRect();
+      glow.style.setProperty('--fx', `${event.clientX - r.left}px`);
+      glow.style.setProperty('--fy', `${event.clientY - r.top}px`);
+    });
+  }
+
   // Появление по скроллу для эффектов ниже
   const onVisible = (els, fn, options = { threshold: 0.4 }) => {
     if (!els.length) return;
