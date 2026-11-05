@@ -6,20 +6,23 @@ const ext = 'target="_blank" rel="noopener"';
 function nav({ t }) {
   const items = [['about', t.nav.about], ['cases', t.nav.cases], ['experience', t.nav.experience], ['contacts', t.nav.contacts]]
     .map(([id, label]) => `<li><a class="nav__link" href="#${id}" data-scroll>${esc(label)}</a></li>`).join('');
-  return `<nav class="nav" aria-label="${esc(t.nav.label)}"><ul class="nav__list">${items}</ul></nav>`;
+  return `<nav class="nav" aria-label="${esc(t.nav.label)}"><ul class="nav__list">${items}</ul><span class="nav__line" aria-hidden="true"></span></nav>`;
 }
+
+// Слова лида по отдельности: появляются друг за другом при загрузке
+const words = (text) => text.split(' ').map((w, i) => `<span class="w" style="--i:${i}">${esc(w)}</span>`).join(' ');
 
 function hero({ t, base, links }) {
   return `<section class="hero">
-  <div class="hero__text" data-reveal>
+  <div class="hero__text">
     <h1 class="hero__name">${t.name.map(esc).join(' ')}</h1>
-    <p class="hero__lead">${esc(t.lead)} <strong class="accent">${esc(t.leadAccent)}</strong></p>
+    <p class="hero__lead">${words(t.lead)} <strong class="accent hero__accent" style="--i:${t.lead.split(' ').length}">${esc(t.leadAccent)}</strong></p>
     <div class="hero__actions">
       <a class="btn btn--filled" href="#contacts" data-scroll>${esc(t.contacts)}</a>
       <a class="btn btn--outline" href="${links.cv[t.lang]}" ${ext}>${esc(t.cv)}</a>
     </div>
   </div>
-  <div class="viewfinder" data-reveal>
+  <div class="viewfinder" data-reveal data-viewfinder>
     <span class="viewfinder__axis viewfinder__axis--x" aria-hidden="true"></span>
     <span class="viewfinder__axis viewfinder__axis--y" aria-hidden="true"></span>
     <span class="viewfinder__ring" aria-hidden="true"></span>
@@ -38,7 +41,7 @@ function about({ t, base }) {
       <p>${rich(text)}</p>
     </li>`).join('\n    ');
   return `<section class="section" id="about" aria-labelledby="about-title">
-  <h2 class="section__title" id="about-title" data-reveal>${esc(t.aboutTitle)}</h2>
+  <h2 class="section__title" data-type id="about-title" data-reveal>${esc(t.aboutTitle)}</h2>
   <ul class="about panel">
     ${items}
   </ul>
@@ -64,7 +67,7 @@ function casesSection({ t, base, cases, caseHref }) {
   const uiHref = caseHref('ui');
   return `<section class="section" id="cases" aria-labelledby="cases-title">
   <div class="section__head" data-reveal>
-    <h2 class="section__title" id="cases-title">${esc(t.casesTitle)}</h2>
+    <h2 class="section__title" data-type id="cases-title">${esc(t.casesTitle)}</h2>
     <p class="visual-link">
       <span>${esc(t.visualQuestion)}</span>
       <a href="${uiHref}"><span class="accent-text">${esc(t.visualLink)}</span><img src="${base}assets/img/arrow-gradient.svg" width="28" height="28" alt=""></a>
@@ -83,11 +86,11 @@ function experience({ t }) {
         ${j.url ? `<a class="job__company" href="${j.url}" ${ext}>${esc(j.company)} ↗</a>` : `<span class="job__company">${esc(j.company)}</span>`}
         <span class="job__role">${esc(j.role)}</span>
       </div>
-      <span class="job__period">${esc(j.period)}</span>
+      <span class="job__period" data-count>${esc(j.period)}</span>
     </li>`).join('\n    ');
   return `<section class="section" id="experience" aria-labelledby="exp-title">
-  <h2 class="section__title" id="exp-title" data-reveal>${esc(t.experienceTitle)}</h2>
-  <ol class="jobs panel">
+  <h2 class="section__title" data-type id="exp-title" data-reveal>${esc(t.experienceTitle)}</h2>
+  <ol class="jobs panel" data-timeline>
     ${rows}
   </ol>
 </section>`;
