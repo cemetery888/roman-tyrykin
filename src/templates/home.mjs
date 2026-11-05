@@ -111,9 +111,11 @@ export function footer({ t, links }) {
     ['Email', links.email],
     ['LinkedIn', links.linkedin],
     ['CV', links.cv[t.lang]],
-  ].map(([label, href]) => `<li><a href="${href}" ${href.startsWith('mailto:') ? '' : ext}><span>${label}</span><span class="contacts__arrow" aria-hidden="true">↗</span></a></li>`).join('\n      ');
-  return `<footer class="contacts" id="contacts" data-reveal>
-    <h2 class="contacts__title">${t.footerTitle.map(esc).join(' <br class="contacts__br">')}</h2>
+  ].map(([label, href], i) => `<li style="--i:${i}"><a href="${href}" ${href.startsWith('mailto:') ? '' : ext}><span>${label}</span><span class="contacts__arrow" aria-hidden="true"><span>↗</span><span>↗</span></span></a></li>`).join('\n      ');
+  // Строки заголовка выезжают из-под маски по очереди
+  const lines = t.footerTitle.map((w, i) => `<span class="contacts__line"><span style="--i:${i}">${esc(w)}</span></span>`).join(' ');
+  return `<footer class="contacts" id="contacts" data-reveal data-glow>
+    <h2 class="contacts__title">${lines}</h2>
     <ul class="contacts__links">
       ${items}
     </ul>

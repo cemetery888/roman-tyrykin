@@ -492,10 +492,8 @@ a.job__company:hover { color: var(--color-text-accent); }
   letter-spacing: -0.01em;
 }
 .contacts__links li:first-child a { border-top: 1px solid var(--color-border-subtle); }
-.contacts__links a span:first-child { flex: 1; }
+.contacts__links a > span:first-child { flex: 1; }
 .contacts__arrow { font-size: 28px; font-weight: 400; }
-.contacts__links a span { transition: opacity 0.2s; }
-.contacts__links a:hover span { opacity: 0.6; }
 
 /* 404 */
 .not-found { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; gap: var(--space-24); }
@@ -758,6 +756,98 @@ a.job__company:hover { color: var(--color-text-accent); }
 }
 .js .about__item.is-visible { background-size: 1px 100%, 100% 1px; }
 
+/* ===== Футер ===== */
+
+/* Живой градиент: цветные пятна медленно плывут, светлое пятно следует за курсором */
+.contacts { position: relative; overflow: hidden; isolation: isolate; }
+.contacts > * { position: relative; z-index: 1; }
+.contacts::before, .contacts::after { content: ''; position: absolute; pointer-events: none; }
+.contacts::before {
+  inset: -40%;
+  background:
+    radial-gradient(30% 30% at 25% 30%, rgba(91, 75, 224, 0.9), transparent 70%),
+    radial-gradient(28% 28% at 75% 65%, rgba(226, 86, 108, 0.8), transparent 70%),
+    radial-gradient(32% 32% at 60% 25%, rgba(169, 79, 214, 0.8), transparent 70%);
+  filter: blur(40px);
+  animation: contacts-drift 18s ease-in-out infinite alternate;
+}
+@keyframes contacts-drift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(6%, -4%) rotate(25deg); }
+  100% { transform: translate(-5%, 5%) rotate(-15deg); }
+}
+.contacts::after {
+  inset: 0;
+  background: radial-gradient(420px circle at var(--fx, 50%) var(--fy, 50%), rgba(255, 255, 255, 0.16), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .contacts:hover::after { opacity: 1; }
+}
+
+/* Заголовок: строки выезжают снизу из-под маски */
+.contacts__line { display: block; overflow: hidden; padding-bottom: 0.12em; margin-bottom: -0.12em; }
+.contacts__line > span { display: inline-block; }
+.js .contacts__line > span { transform: translateY(110%); transition: transform 0.9s var(--ease); transition-delay: calc(0.15s + var(--i) * 0.12s); }
+.js .contacts.is-visible .contacts__line > span { transform: none; }
+
+/* Ссылки: стрелка улетает и прилетает новая, строка сдвигается, снизу прорисовывается линия */
+.contacts__links a { position: relative; }
+.contacts__links a > span:first-child { transition: transform 0.35s var(--ease); }
+.contacts__links a:hover > span:first-child { transform: translateX(8px); }
+.contacts__links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--color-text-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s var(--ease);
+}
+.contacts__links a:hover::after { transform: scaleX(1); }
+.contacts__arrow { position: relative; display: inline-block; overflow: hidden; line-height: 1; }
+.contacts__arrow > span { display: block; transition: transform 0.4s var(--ease); }
+.contacts__arrow > span + span { position: absolute; inset: 0; transform: translate(-100%, 100%); }
+.contacts__links a:hover .contacts__arrow > span:first-child { transform: translate(100%, -100%); }
+.contacts__links a:hover .contacts__arrow > span + span { transform: none; }
+
+/* Появление списка: ссылки по очереди, линии прорисовываются слева направо */
+.js .contacts__links li { opacity: 0; transform: translateY(16px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); transition-delay: calc(0.35s + var(--i) * 0.1s); }
+.js .contacts.is-visible .contacts__links li { opacity: 1; transform: none; }
+.js .contacts__links a { border-color: transparent; }
+.js .contacts__links a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--color-border-subtle);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s var(--ease);
+  transition-delay: calc(0.45s + var(--i) * 0.1s);
+}
+.js .contacts__links li:first-child { position: relative; }
+.js .contacts__links li:first-child::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-border-subtle);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s var(--ease) 0.4s;
+}
+.js .contacts.is-visible .contacts__links a::before,
+.js .contacts.is-visible .contacts__links li:first-child::before { transform: scaleX(1); }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .to-top { transition: none; }
@@ -767,4 +857,6 @@ a.job__company:hover { color: var(--color-text-accent); }
   .jobs::before { transform: none; }
   .js .about__item { background-size: 1px 100%, 100% 1px; }
   .js .about__lit { background-size: 100% 100%, 100% 100%; }
+  .js .contacts__line > span, .js .contacts__links li { opacity: 1; transform: none; }
+  .js .contacts__links a::before, .js .contacts__links li:first-child::before { transform: none; }
 }
