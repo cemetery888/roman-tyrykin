@@ -36,9 +36,11 @@ function hero({ t, base, links }) {
 }
 
 function about({ t, base }) {
-  const items = t.about.map((text) => `<li class="about__item" data-reveal>
-      <img src="${base}assets/img/asterisk.svg" width="28" height="28" alt="">
-      <p>${rich(text)}</p>
+  // Порядковый номер у градиентных слов: «зажигаются» по очереди
+  const lit = (html) => { let k = 0; return html.replace(/<strong class="accent">/g, () => `<strong class="accent about__lit" style="--k:${k++}">`); };
+  const items = t.about.map((text, i) => `<li class="about__item" data-reveal data-spot style="--d:${[0, 1, 1, 2][i] ?? i}">
+      <span class="about__star"><img src="${base}assets/img/asterisk.svg" width="28" height="28" alt=""></span>
+      <p>${lit(rich(text))}</p>
     </li>`).join('\n    ');
   return `<section class="section" id="about" aria-labelledby="about-title">
   <h2 class="section__title" data-type id="about-title" data-reveal>${esc(t.aboutTitle)}</h2>
