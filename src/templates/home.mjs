@@ -12,7 +12,7 @@ function nav({ t }) {
 function hero({ t, base, links }) {
   return `<section class="hero">
   <div class="hero__text" data-reveal>
-    <h1 class="hero__name">${t.name.map(esc).join('<br>')}</h1>
+    <h1 class="hero__name">${t.name.map(esc).join(' ')}</h1>
     <p class="hero__lead">${esc(t.lead)} <strong class="accent">${esc(t.leadAccent)}</strong></p>
     <div class="hero__actions">
       <a class="btn btn--filled" href="#contacts" data-scroll>${esc(t.contacts)}</a>
