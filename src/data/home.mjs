@@ -12,14 +12,14 @@ export const links = {
   },
 };
 
-// Порядок карточек как в макете.
+// Порядок карточек как в макете. hidden: кейса нет на главной и он закрыт от поисковиков, страница открывается только по прямой ссылке.
 export const cases = [
   { slug: 'triafly', theme: 'triafly', images: ['case-triafly.webp'], tags: ['SaaS', 'BI', 'B2B'] },
   { slug: 'ihaveticket', theme: 'iht', images: ['case-iht.webp'], tags: ['Entertainment', 'Streaming', 'B2C'] },
   { slug: 'eltex', theme: 'eltex', images: ['case-eltex.webp'], tags: ['Telecom', 'Web', 'B2B'] },
   { slug: 'bitazza', theme: 'bitazza', phones: true, images: ['case-bitazza-1.webp', 'case-bitazza-2.webp', 'case-bitazza-3.webp'], tags: ['Fintech', 'Crypto', 'Mobile'] },
   { slug: 'pt-exchange', theme: 'pte', phones: true, images: ['case-pte-1.webp', 'case-pte-2.webp', 'case-pte-3.webp'], tags: ['Fintech', 'Mobile', 'B2C'] },
-  { slug: 'top1bet', theme: 'top1bet', images: ['case-top1bet.webp'], tags: ['Betting', 'Admin Panel', 'B2B'] },
+  { slug: 'top1bet', hidden: true, theme: 'top1bet', images: ['case-top1bet.webp'], tags: ['Betting', 'Admin Panel', 'B2B'] },
   { slug: 'bitrix', theme: 'bitrix', images: ['case-bitrix.webp'], tags: ['E-Commerce', 'B2C'] },
 ];
 

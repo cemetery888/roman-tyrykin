@@ -33,6 +33,7 @@ for (const [slug, langs] of Object.entries(caseMeta)) {
       alt: lang === 'ru' ? `en/${slug}/` : `${slug}/`,
       styles: ['assets/css/cases.css'],
       bodyClass: 'is-case',
+      noindex: home.cases.some((c) => c.slug === slug && c.hidden),
       render: (base) => casePage({ t, base, links: home.links, homeHref: lang === 'ru' ? base : `${base}en/`, content }),
       meta: {
         ...t,
@@ -67,6 +68,7 @@ for (const page of pages) {
     body: page.render(base),
     styles: page.styles,
     bodyClass: page.bodyClass,
+    noindex: page.noindex,
   });
   await mkdir(join(dist, page.path), { recursive: true });
   await writeFile(join(dist, page.path, 'index.html'), html);

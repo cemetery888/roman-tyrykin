@@ -76,7 +76,7 @@ function casesSection({ t, base, cases, caseHref }) {
     </p>
   </div>
   <div class="cases">
-    ${cases.map((c) => caseCard({ c, t, base, href: caseHref(c.slug) })).join('\n    ')}
+    ${cases.filter((c) => !c.hidden).map((c) => caseCard({ c, t, base, href: caseHref(c.slug) })).join('\n    ')}
   </div>
 </section>`;
 }

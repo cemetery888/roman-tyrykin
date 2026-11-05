@@ -10,7 +10,7 @@ function langSwitch({ ru, en, label }) {
   return `<nav class="lang" aria-label="${esc(label)}">${item('ru', ru)}<span class="lang__divider" aria-hidden="true"></span>${item('en', en)}</nav>`;
 }
 
-export function layout({ lang, base, title, description, og, url, altUrl, altLang, langSwitch: ls, body, bodyClass = '', styles = [] }) {
+export function layout({ lang, base, title, description, og, url, altUrl, altLang, langSwitch: ls, body, bodyClass = '', styles = [], noindex = false }) {
   return `<!doctype html>
 <html lang="${lang}">
 <head>
@@ -18,7 +18,7 @@ export function layout({ lang, base, title, description, og, url, altUrl, altLan
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
-<link rel="canonical" href="${url}">
+${noindex ? '<meta name="robots" content="noindex">\n' : ''}<link rel="canonical" href="${url}">
 <link rel="alternate" hreflang="${lang}" href="${url}">
 <link rel="alternate" hreflang="${altLang}" href="${altUrl}">
 <meta property="og:type" content="website">
