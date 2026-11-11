@@ -56,6 +56,8 @@
 .case-stats--m .case-stat b { font-size: 40px; }
 .case-stats--m .case-stat span { font-size: 14px; }
 .case-stats-note--m { font-size: 14px; }
+/* Цвет плиток Элтекса */
+.case-stats--eltex .case-stat { background: rgba(39, 94, 199, 0.16); }
 /* Любой блок макета не шире своего родителя */
 :where(.fig div, .fig p, .fig ul, .fig ol, .fig a):not(:where(.absolute)) { max-width: 100%; min-width: 0; }
 
