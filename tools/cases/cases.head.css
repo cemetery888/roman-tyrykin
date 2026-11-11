@@ -74,5 +74,19 @@
 @media (prefers-reduced-motion: reduce) {
   .case-back, .to-top { transition: none; }
 }
+/* Плитки с цифрами в блоке «Главное» (Триафлай) */
+.case-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; width: 100%; }
+.case-stat { display: flex; flex-direction: column; gap: 6px; padding: 20px 24px; border-radius: 12px; background: rgba(0, 78, 223, 0.16); color: #fff; font-family: 'Onest', sans-serif; min-width: 0; }
+.case-stat b { font-weight: 700; font-size: 64px; line-height: 1; white-space: nowrap; }
+.case-stat span { font-size: 18px; line-height: 1.3; color: #c9c9d1; }
+.case-stats-note { font-family: 'Onest', sans-serif; font-size: 16px; line-height: 1.35; color: #8a8a94; width: 100%; }
+.case-stats--t .case-stat { padding: 16px 20px; }
+.case-stats--t .case-stat b { font-size: 40px; }
+.case-stats--t .case-stat span { font-size: 16px; }
+.case-stats--m { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.case-stats--m .case-stat { padding: 14px 16px; }
+.case-stats--m .case-stat b { font-size: 40px; }
+.case-stats--m .case-stat span { font-size: 14px; }
+.case-stats-note--m { font-size: 14px; }
 /* Любой блок макета не шире своего родителя */
 :where(.fig div, .fig p, .fig ul, .fig ol, .fig a):not(:where(.absolute)) { max-width: 100%; min-width: 0; }
