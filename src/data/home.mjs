@@ -46,9 +46,9 @@ export const ru = {
   visualLink: 'Вам сюда',
   caseCursor: 'Смотреть кейс',
   cases: {
-    triafly: { title: 'ТРИАФЛАЙ', text: 'Перепроектирование low-code платформы для автоматизации аналитики.' },
+    triafly: { title: 'ТРИАФЛАЙ', text: 'Перепроектирование low-code платформы для автоматизации аналитики. **Дизайн-система из 77 компонентов, ~260 макетов.**' },
     ihaveticket: { title: 'I HAVE TICKET', text: 'Дизайн сайта для лайв-стриминга концертов. **CR покупки билетов 8%, RR 30%.**' },
-    eltex: { title: 'ЭЛТЕКС', text: 'Проектирование интерфейсов настройки, мониторинга и управления сервисным маршрутизатором.' },
+    eltex: { title: 'ЭЛТЕКС', text: 'Проектирование интерфейсов настройки, мониторинга и управления сервисным маршрутизатором. **132 экрана за 3 месяца.**' },
     bitazza: { title: 'BITAZZA', text: 'Перепроектирование основных флоу мобильного приложения и редизайн ключевых экранов.' },
     'pt-exchange': { title: 'PENTOR EXCHANGE', text: 'Редизайн мобильного приложения популярной сети пунктов обмена валют в Бангкоке.' },
     top1bet: { title: 'TOP1BET', text: 'Админка для управления агентами и игроками для сайта с азартными играми и ставками на спорт. **Много картинок.**' },
@@ -57,7 +57,7 @@ export const ru = {
   experienceTitle: 'Опыт работы',
   jobs: [
     { n: '04', company: 'Элтекс', url: 'https://eltex.ru/', role: 'Старший продуктовый дизайнер', period: 'Мар 2026 — Июн 2026, 3 мес' },
-    { n: '03', company: 'Триафлай', url: 'https://triafly.ru/', role: 'Старший продуктовый дизайнер', period: 'Сен 2024 — Ноя 2025, 1 г 1 мес' },
+    { n: '03', company: 'Триафлай', url: 'https://triafly.ru/', role: 'Старший продуктовый дизайнер', period: 'Окт 2024 — Ноя 2025, 1 г 1 мес' },
     { n: '02', company: 'Snocko Technologies Co.Ltd', url: 'https://www.snocko.com/', role: 'Продуктовый дизайнер', period: 'Янв 2019 — Апр 2024, 5 л 4 мес' },
     { n: '01', company: 'Студии и агентства', role: 'UX Дизайнер', period: 'Ноя 2013 — Ноя 2018, 5 л' },
   ],
@@ -92,9 +92,9 @@ export const en = {
   visualLink: 'Come here',
   caseCursor: 'View case study',
   cases: {
-    triafly: { title: 'TRIAFLY', text: 'Redesign of a low-code platform for automating analytical processes.' },
+    triafly: { title: 'TRIAFLY', text: 'Redesign of a low-code platform for automating analytical processes. **Design system of 77 components, ~260 mockups.**' },
     ihaveticket: { title: 'I HAVE TICKET', text: 'Website design for live concert streaming. **Ticket purchase CR: 8%, RR: 30%.**' },
-    eltex: { title: 'ELTEX', text: 'Designing interfaces for configuring, monitoring, and managing a service router.' },
+    eltex: { title: 'ELTEX', text: 'Designing interfaces for configuring, monitoring, and managing a service router. **132 screens in 3 months.**' },
     bitazza: { title: 'BITAZZA', text: 'Redesign of the core flows of a mobile application and redesign of key screens.' },
     'pt-exchange': { title: 'PENTOR EXCHANGE', text: 'Redesign of a mobile app for a popular currency exchange chain in Bangkok.' },
     top1bet: { title: 'TOP1BET', text: 'Admin panel for managing agents and players for a gambling and sports betting website. **Lots of visuals.**' },
@@ -103,7 +103,7 @@ export const en = {
   experienceTitle: 'Experience',
   jobs: [
     { n: '04', company: 'Eltex', url: 'https://eltex.ru/', role: 'Sr. Product Designer', period: 'Mar 2026 — Jun 2026, 3 mos' },
-    { n: '03', company: 'Triafly', url: 'https://triafly.ru/', role: 'Sr. Product Designer', period: 'Sep 2024 — Nov 2025, 1 yr 1 mo' },
+    { n: '03', company: 'Triafly', url: 'https://triafly.ru/', role: 'Sr. Product Designer', period: 'Oct 2024 — Nov 2025, 1 yr 1 mo' },
     { n: '02', company: 'Snocko Technologies Co.Ltd', url: 'https://www.snocko.com/', role: 'Product Designer', period: 'Jan 2019 — Apr 2024, 5 yrs 4 mos' },
     { n: '01', company: 'Studios and agencies', role: 'UX Designer', period: 'Nov 2013 — Nov 2018, 5 yrs' },
   ],
