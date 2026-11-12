@@ -10,7 +10,7 @@ function langSwitch({ ru, en, label }) {
   return `<nav class="lang" aria-label="${esc(label)}">${item('ru', ru)}<span class="lang__divider" aria-hidden="true"></span>${item('en', en)}</nav>`;
 }
 
-export function layout({ lang, base, title, description, og, url, altUrl, altLang, langSwitch: ls, body, bodyClass = '', styles = [], noindex = false }) {
+export function layout({ lang, base, title, description, og, url, altUrl, altLang, langSwitch: ls, body, bodyClass = '', styles = [], scripts = [], noindex = false }) {
   return `<!doctype html>
 <html lang="${lang}">
 <head>
@@ -44,7 +44,7 @@ ${styles.map((href) => `<link rel="stylesheet" href="${base}${href}">`).join('\n
 ${langSwitch(ls)}
 ${body}
 <script src="${base}assets/js/main.js" defer></script>
-</body>
+${scripts.map((src) => `<script src="${base}${src}" defer></script>\n`).join('')}</body>
 </html>
 `;
 }

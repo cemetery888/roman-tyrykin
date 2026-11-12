@@ -1,0 +1,193 @@
+/* Черновик новой главной (/homenew): холст Figma на первом экране, кейсы стопкой, таймлайн опыта */
+
+/* Первый экран. Без JS и на мобильном это обычный блок; .is-scrolly включает липкую сцену */
+.hn-hero { position: relative; }
+.hn-hero__stage {
+  position: relative;
+  max-width: calc(1320px + 2 * var(--page-pad));
+  margin: 0 auto;
+  padding: 160px var(--page-pad) 0;
+}
+.hn-hero__text { position: relative; z-index: 2; display: flex; flex-direction: column; gap: var(--space-40); }
+.hn-hero__kicker { font-family: var(--font-mono-title); font-size: 20px; line-height: 26px; color: rgba(255, 255, 255, 0.5); }
+.hn-title { display: flex; flex-direction: column; font-size: min(8.4vw, 132px); font-weight: 600; line-height: 1; letter-spacing: -0.03em; }
+.hn-title__line { display: block; align-self: flex-start; white-space: nowrap; }
+.hn-title__line[data-line="right"] { align-self: flex-end; }
+.hn-title .accent { font-weight: inherit; }
+.hn-hero__actions { display: flex; gap: var(--space-16); }
+.hn-vf { margin-top: var(--space-56); width: 100%; height: 480px; }
+.hn-main { padding-top: var(--section-gap); }
+
+.hn-hero.is-scrolly { height: 200vh; }
+.is-scrolly .hn-hero__stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 88px;
+  padding-bottom: 40px;
+  overflow: hidden;
+}
+.is-scrolly .hn-title__line[data-line="left"] { transform: translateX(calc(var(--p, 0) * -60vw)); opacity: calc(1 - var(--p, 0) * 1.6); }
+.is-scrolly .hn-title__line[data-line="right"] { transform: translateX(calc(var(--p, 0) * 60vw)); opacity: calc(1 - var(--p, 0) * 1.6); }
+.is-scrolly .hn-hero__kicker, .is-scrolly .hn-hero__actions { opacity: calc(1 - var(--p, 0) * 3); }
+.is-scrolly .hn-hero__actions { pointer-events: auto; }
+.is-scrolly .hn-vf {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  width: 480px;
+  height: min(560px, 70vh);
+  opacity: calc(var(--p, 0) * 2.5);
+  transform: translate(-50%, -50%) scale(calc(0.8 + var(--p, 0) * 0.2));
+  pointer-events: none;
+}
+.is-scrolly .hn-vf .viewfinder__photo { clip-path: circle(calc(var(--p, 0) * 52%)); }
+.is-scrolly.is-revealed .hn-vf { pointer-events: auto; }
+
+/* Холст: выделение, комментарий и курсоры поверх заголовка */
+.hn-canvas { position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: calc(1 - var(--p, 0) * 5); }
+.hn-sel {
+  position: absolute;
+  left: var(--sx, 0px);
+  top: var(--sy, 0px);
+  width: var(--sw, 0px);
+  height: var(--sh, 0px);
+  border: 1.5px solid #7d60f3;
+  opacity: 0;
+}
+.hn-sel.is-on { opacity: 1; }
+.hn-sel__frame, .hn-sel__h, .hn-sel__size { opacity: 0; transition: opacity 0.3s; }
+.hn-sel.is-done .hn-sel__frame, .hn-sel.is-done .hn-sel__h, .hn-sel.is-done .hn-sel__size { opacity: 1; }
+.hn-sel__frame { position: absolute; left: -1.5px; bottom: calc(100% + 6px); font-family: var(--font-mono-title); font-size: 13px; line-height: 1; color: #b2a0f8; white-space: nowrap; }
+.hn-sel__h { position: absolute; width: 9px; height: 9px; border: 1.5px solid #7d60f3; background: #fff; }
+.hn-sel__h--tl { left: -5px; top: -5px; }
+.hn-sel__h--tr { right: -5px; top: -5px; }
+.hn-sel__h--br { right: -5px; bottom: -5px; }
+.hn-sel__h--bl { left: -5px; bottom: -5px; }
+.hn-sel__size {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 8px);
+  padding: 3px 6px;
+  border-radius: 4px;
+  background: #7d60f3;
+  font-family: var(--font-mono-title);
+  font-size: 12px;
+  line-height: 1;
+  color: #fff;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+.hn-cur { position: absolute; left: 0; top: 0; translate: var(--x, -100px) var(--y, -100px); opacity: 0; transition: opacity 0.4s; }
+.hn-cur.is-on { opacity: 1; }
+.hn-cur svg { display: block; }
+.hn-cur__name {
+  position: absolute;
+  left: 16px;
+  top: 18px;
+  padding: 4px 8px;
+  border-radius: 10px;
+  background: var(--c);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  color: #fff;
+  white-space: nowrap;
+}
+.hn-canvas.is-idle .hn-cur { animation: hn-float 6s ease-in-out infinite; }
+.hn-canvas.is-idle .hn-cur--client { animation-delay: -2s; }
+.hn-canvas.is-idle .hn-cur--dev { animation-delay: -4s; }
+@keyframes hn-float { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(6px, -8px); } }
+.hn-comment {
+  position: absolute;
+  left: var(--x, 0px);
+  top: var(--y, 0px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 6px;
+  border-radius: 18px 18px 18px 4px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-text-inverse);
+  white-space: nowrap;
+  opacity: 0;
+  transform: scale(0.6);
+  transform-origin: bottom left;
+  transition: opacity 0.3s, transform 0.4s var(--ease);
+}
+.hn-comment.is-on { opacity: 1; transform: none; }
+.hn-comment__ava { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #f45085; font-size: 13px; font-weight: 700; color: #fff; }
+
+/* Кейсы стопкой: каждая карточка прилипает чуть ниже предыдущей и наезжает на неё */
+.hn-stack { display: flex; flex-direction: column; gap: var(--space-40); }
+.hn-stack__item { position: sticky; top: calc(40px + var(--i) * 20px); transform: scale(var(--s, 1)); transform-origin: 50% 0; filter: brightness(var(--b, 1)); }
+.hn-stack .case { flex-direction: row; align-items: stretch; gap: var(--space-48); padding: var(--space-32); }
+.hn-stack .case > :first-child { flex: 1.35 1 0; min-width: 0; }
+.hn-stack .case__body { flex: 1 1 0; min-width: 0; justify-content: flex-end; }
+.hn-stack .case__phones { height: auto; aspect-ratio: 604 / 320; justify-content: center; }
+.hn-stack .case__phones img { height: 100%; width: auto; }
+.hn-stack .case__title { font-size: 40px; line-height: 1.2; }
+.hn-stack .case__text { font-size: 20px; }
+.hn-stack .case:hover { transform: perspective(1200px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.015); }
+
+/* Опыт: точки на линии загораются по мере скролла */
+.hn-jobs { --jobs-pad: var(--space-32); padding-left: calc(var(--jobs-pad) * 2); }
+.hn-jobs::before { left: var(--jobs-pad); }
+.hn-jobs .job { position: relative; }
+.hn-dot {
+  position: absolute;
+  left: calc(-1 * var(--jobs-pad) - 6px);
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--color-border-default);
+  border-radius: 50%;
+  background: var(--color-bg-page-alt);
+  transform: translateY(-50%);
+  transition: border-color 0.4s, background 0.4s, box-shadow 0.4s;
+}
+.hn-jobs .job.is-lit .hn-dot { border-color: #e9a0f8; background: #e9a0f8; box-shadow: 0 0 0 6px rgba(233, 160, 248, 0.16), 0 0 18px rgba(233, 160, 248, 0.45); }
+
+@media (max-width: 1199px) {
+  .hn-hero__stage { padding-top: 140px; }
+  .hn-title { font-size: 8.6vw; }
+  .is-scrolly .hn-vf { width: min(480px, 70vw); height: min(480px, 60vh); }
+  .hn-stack .case { gap: var(--space-32); padding: var(--space-24); }
+  .hn-stack .case__title { font-size: 28px; }
+  .hn-stack .case__text { font-size: 18px; }
+  .hn-jobs { --jobs-pad: var(--space-20); }
+}
+@media (max-width: 639px) {
+  .hn-hero__stage { padding-top: var(--page-top); }
+  .hn-hero__text { gap: var(--space-24); }
+  .hn-hero__kicker { font-size: 16px; line-height: 22px; }
+  .hn-title { font-size: 11.4vw; }
+  .hn-title__line { white-space: normal; }
+  .hn-title__line[data-line="right"] { align-self: flex-start; }
+  .hn-hero__actions { gap: var(--space-12); }
+  .hn-vf { --vf-photo: 200px; margin-top: var(--space-40); height: 400px; }
+  .hn-canvas { display: none; }
+  .hn-stack { gap: var(--space-12); }
+  .hn-stack__item { position: static; transform: none; filter: none; }
+  .hn-stack .case { flex-direction: column; height: auto; gap: var(--space-28); padding: var(--space-20) var(--space-16); }
+  .hn-stack .case > :first-child, .hn-stack .case__body { flex: none; }
+  .hn-stack .case__media { aspect-ratio: 311 / 161; }
+  .hn-stack .case__phones { aspect-ratio: auto; }
+  .hn-stack .case__phones img { height: auto; flex: 1 1 0; min-width: 0; width: 100%; }
+  .hn-stack .case__title { font-size: 22px; }
+  .hn-stack .case__text { font-size: 16px; }
+  .hn-jobs { --jobs-pad: var(--space-16); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hn-stack__item { position: static; transform: none; filter: none; }
+}
