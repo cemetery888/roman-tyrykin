@@ -3,7 +3,6 @@ import { cp, mkdir, rm, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { layout } from './src/templates/layout.mjs';
-import { homePage } from './src/templates/home.mjs';
 import { homeNewPage } from './src/templates/homenew.mjs';
 import { notFoundPage } from './src/templates/not-found.mjs';
 import { casePage } from './src/templates/case.mjs';
@@ -16,16 +15,13 @@ export const SITE_URL = 'https://roman-tyrykin.ru/';
 
 // Маршруты: RU в корне, EN в /en/. path — без ведущего слэша, с завершающим.
 const pages = [
-  { path: '', lang: 'ru', alt: 'en/', render: (base) => homePage({ t: home.ru, base, links: home.links, cases: home.cases, caseHref: (slug) => `${base}${slug}/` }) , meta: home.ru },
-  { path: 'en/', lang: 'en', alt: '', render: (base) => homePage({ t: home.en, base, links: home.links, cases: home.cases, caseHref: (slug) => `${base}en/${slug}/` }), meta: home.en },
-  // Черновик новой главной: не в навигации и закрыт от поисковиков
+  // Главная (RU в корне, EN в /en/): видоискатель на первом экране, кейсы стопкой, таймлайн опыта
   ...['ru', 'en'].map((lang) => ({
-    path: lang === 'ru' ? 'homenew/' : 'en/homenew/',
+    path: lang === 'ru' ? '' : 'en/',
     lang,
-    alt: lang === 'ru' ? 'en/homenew/' : 'homenew/',
-    styles: ['assets/css/homenew.css'],
-    scripts: ['assets/js/homenew.js'],
-    noindex: true,
+    alt: lang === 'ru' ? 'en/' : '',
+    styles: ['assets/css/home.css'],
+    scripts: ['assets/js/home.js'],
     render: (base) => homeNewPage({ t: home[lang], base, links: home.links, cases: home.cases, caseHref: (slug) => `${base}${lang === 'ru' ? '' : 'en/'}${slug}/` }),
     meta: home[lang],
   })),
