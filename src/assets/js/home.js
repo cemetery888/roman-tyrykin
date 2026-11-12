@@ -1,4 +1,4 @@
-// Черновик новой главной: стопка кейсов, точки таймлайна
+// Главная: стопка кейсов, точки таймлайна
 (() => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
