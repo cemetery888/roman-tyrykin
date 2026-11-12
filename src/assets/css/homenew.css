@@ -46,7 +46,8 @@
 .hn-dot {
   position: absolute;
   left: calc(-1 * var(--jobs-pad) - 6px);
-  top: 50%;
+  /* По центру порядкового номера: отступ строки сверху + половина высоты номера */
+  top: var(--dot-y, 54px);
   width: 14px;
   height: 14px;
   border: 2px solid var(--color-border-default);
@@ -63,7 +64,7 @@
   .hn-hero .viewfinder { height: 400px; }
   .hn-hero__kicker { font-size: 24px; line-height: 32px; }
   .hn-stack__item { top: calc(40px + var(--i) * 20px); }
-  .hn-jobs { --jobs-pad: var(--space-20); }
+  .hn-jobs { --jobs-pad: var(--space-20); --dot-y: 50px; }
 }
 @media (max-width: 639px) {
   .hn-hero__stage { padding-top: var(--page-top); }
@@ -74,7 +75,7 @@
   .hn-hero__actions { gap: var(--space-12); }
   .hn-hero .viewfinder { height: 340px; }
   .hn-stack__item { position: static; transform: none; filter: none; }
-  .hn-jobs { --jobs-pad: var(--space-16); }
+  .hn-jobs { --jobs-pad: var(--space-16); --dot-y: 34px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hn-stack__item { position: static; transform: none; filter: none; }
