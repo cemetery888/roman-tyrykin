@@ -50,7 +50,7 @@ export function notFoundPage({ base }) {
     <h1 class="nf-title">Этот экран потерялся <span class="nf-nowrap">где-то</span> между макетом и продом</h1>
     <p class="nf-title-en" lang="en">This screen got lost somewhere between the mockup and production</p>
   </div>
-  <p class="nf-text">Пока ищу его, можно потаскать цифры. <span lang="en">Meanwhile, drag the numbers around.</span></p>
+  <p class="nf-text">Пока ищу его, можно потаскать цифры.<br><span lang="en">Meanwhile, drag the numbers around.</span></p>
   <div class="nf-actions">
     <a class="btn btn--filled" href="${base}">На главную</a>
     <a class="btn btn--outline" href="${base}en/" lang="en">Home</a>
