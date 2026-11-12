@@ -4,6 +4,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { layout } from './src/templates/layout.mjs';
 import { homePage } from './src/templates/home.mjs';
+import { homeNewPage } from './src/templates/homenew.mjs';
 import { notFoundPage } from './src/templates/not-found.mjs';
 import { casePage } from './src/templates/case.mjs';
 import { readFile } from 'node:fs/promises';
@@ -17,6 +18,17 @@ export const SITE_URL = 'https://roman-tyrykin.ru/';
 const pages = [
   { path: '', lang: 'ru', alt: 'en/', render: (base) => homePage({ t: home.ru, base, links: home.links, cases: home.cases, caseHref: (slug) => `${base}${slug}/` }) , meta: home.ru },
   { path: 'en/', lang: 'en', alt: '', render: (base) => homePage({ t: home.en, base, links: home.links, cases: home.cases, caseHref: (slug) => `${base}en/${slug}/` }), meta: home.en },
+  // Черновик новой главной: не в навигации и закрыт от поисковиков
+  ...['ru', 'en'].map((lang) => ({
+    path: lang === 'ru' ? 'homenew/' : 'en/homenew/',
+    lang,
+    alt: lang === 'ru' ? 'en/homenew/' : 'homenew/',
+    styles: ['assets/css/homenew.css'],
+    scripts: ['assets/js/homenew.js'],
+    noindex: true,
+    render: (base) => homeNewPage({ t: home[lang], base, links: home.links, cases: home.cases, caseHref: (slug) => `${base}${lang === 'ru' ? '' : 'en/'}${slug}/` }),
+    meta: home[lang],
+  })),
 ];
 
 // Кейсы: вёрстка сгенерирована из макета tools/cases/convert.mjs
@@ -69,6 +81,7 @@ for (const page of pages) {
     styles: page.styles,
     bodyClass: page.bodyClass,
     noindex: page.noindex,
+    scripts: page.scripts,
   });
   await mkdir(join(dist, page.path), { recursive: true });
   await writeFile(join(dist, page.path, 'index.html'), html);

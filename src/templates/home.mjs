@@ -3,7 +3,7 @@ import { esc, rich } from './layout.mjs';
 const ext = 'target="_blank" rel="noopener"';
 
 // Навигация по разделам: десктоп и планшет, на мобильном скрыта
-function nav({ t }) {
+export function nav({ t }) {
   const items = [['about', t.nav.about], ['cases', t.nav.cases], ['experience', t.nav.experience], ['contacts', t.nav.contacts]]
     .map(([id, label]) => `<li><a class="nav__link" href="#${id}" data-scroll>${esc(label)}</a></li>`).join('');
   return `<nav class="nav" aria-label="${esc(t.nav.label)}"><ul class="nav__list">${items}</ul><span class="nav__line" aria-hidden="true"></span></nav>`;
@@ -35,7 +35,7 @@ function hero({ t, base, links }) {
 </section>`;
 }
 
-function about({ t, base }) {
+export function about({ t, base }) {
   // Порядковый номер у градиентных слов: «зажигаются» по очереди
   const lit = (html) => { let k = 0; return html.replace(/<strong class="accent">/g, () => `<strong class="accent about__lit" style="--k:${k++}">`); };
   const items = t.about.map((text, i) => `<li class="about__item" data-reveal data-spot style="--d:${[0, 1, 1, 2][i] ?? i}">
@@ -50,7 +50,7 @@ function about({ t, base }) {
 </section>`;
 }
 
-function caseCard({ c, t, base, href }) {
+export function caseCard({ c, t, base, href }) {
   const copy = t.cases[c.slug];
   const media = c.phones
     ? `<div class="case__phones">${c.images.map((img) => `<img src="${base}assets/img/${img}" width="360" height="800" alt="" loading="lazy">`).join('')}</div>`
@@ -81,7 +81,7 @@ function casesSection({ t, base, cases, caseHref }) {
 </section>`;
 }
 
-function experience({ t }) {
+export function experience({ t }) {
   const rows = t.jobs.map((j) => `<li class="job" data-reveal>
       <span class="job__num">${esc(j.n)}</span>
       <div class="job__info">
