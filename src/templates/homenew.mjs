@@ -2,48 +2,31 @@ import { esc } from './layout.mjs';
 import { nav, about, caseCard, footer, toTop } from './home.mjs';
 
 const ext = 'target="_blank" rel="noopener"';
-const arrow = (color) => `<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 2.5v17l4.8-4.6h7.7z" fill="${color}" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>`;
-
-// Первый экран: огромный заголовок на «холсте Figma». Курсоры и выделение рисует homenew.js,
-// при скролле строки разъезжаются и из видоискателя проявляется фото
+// Первый экран: крупный заголовок, рядом фото как выделенный слой на холсте Figma
 function hero({ t, base, links }) {
   const words = t.leadAccent.split(' ');
   const half = Math.ceil(words.length / 2);
-  const cursor = (key, color) => `<div class="hn-cur hn-cur--${key}" data-cur="${key}" style="--c:${color}">${arrow(color)}<span class="hn-cur__name">${esc(t.canvas[key])}</span></div>`;
-  return `<section class="hn-hero" data-hn-hero>
+  return `<section class="hn-hero">
   <div class="hn-hero__stage">
     <div class="hn-hero__text">
       <p class="hn-hero__kicker">${esc(t.name.join(' '))} — ${esc(t.lead)}</p>
-      <h1 class="hn-title" data-hn-title>
-        <span class="hn-title__line" data-line="left">${esc(words.slice(0, half).join(' '))}</span>
-        <span class="hn-title__line" data-line="right"><span class="accent">${esc(words.slice(half).join(' '))}</span></span>
+      <h1 class="hn-title">
+        <span class="hn-title__line">${esc(words.slice(0, half).join(' '))}</span>
+        <span class="hn-title__line"><span class="accent">${esc(words.slice(half).join(' '))}</span></span>
       </h1>
       <div class="hn-hero__actions">
         <a class="btn btn--filled" href="#contacts" data-scroll>${esc(t.contacts)}</a>
-        <a class="btn btn--outline" href="${links.cv[t.lang]}" ${ext} data-hn-cv>${esc(t.cv)}</a>
+        <a class="btn btn--outline" href="${links.cv[t.lang]}" ${ext}>${esc(t.cv)}</a>
       </div>
     </div>
-    <div class="viewfinder hn-vf" data-hn-vf data-viewfinder>
-      <span class="viewfinder__axis viewfinder__axis--x" aria-hidden="true"></span>
-      <span class="viewfinder__axis viewfinder__axis--y" aria-hidden="true"></span>
-      <span class="viewfinder__ring" aria-hidden="true"></span>
-      <span class="viewfinder__corner viewfinder__corner--tl" aria-hidden="true"></span>
-      <span class="viewfinder__corner viewfinder__corner--tr" aria-hidden="true"></span>
-      <span class="viewfinder__corner viewfinder__corner--br" aria-hidden="true"></span>
-      <span class="viewfinder__corner viewfinder__corner--bl" aria-hidden="true"></span>
-      <img class="viewfinder__photo" src="${base}assets/img/me.webp" width="600" height="600" alt="${esc(t.photoAlt)}">
-    </div>
-    <div class="hn-canvas" aria-hidden="true" data-hn-canvas>
-      <div class="hn-sel" data-hn-sel>
-        <span class="hn-sel__frame">${esc(t.canvas.frame)}</span>
-        <i class="hn-sel__h hn-sel__h--tl"></i><i class="hn-sel__h hn-sel__h--tr"></i><i class="hn-sel__h hn-sel__h--br"></i><i class="hn-sel__h hn-sel__h--bl"></i>
-        <span class="hn-sel__size" data-hn-size></span>
-      </div>
-      <div class="hn-comment" data-hn-comment><span class="hn-comment__ava">${esc(t.canvas.client[0])}</span>${esc(t.canvas.comment)}</div>
-      ${cursor('me', '#7d60f3')}
-      ${cursor('client', '#f45085')}
-      ${cursor('dev', '#1f90ef')}
-    </div>
+    <figure class="hn-layer" data-hn-layer>
+      <img class="hn-layer__photo" src="${base}assets/img/me.webp" width="600" height="600" alt="${esc(t.photoAlt)}">
+      <span class="hn-layer__sel" aria-hidden="true">
+        <span class="hn-layer__name">${esc(t.canvas.frame)}</span>
+        <i class="hn-layer__h hn-layer__h--tl"></i><i class="hn-layer__h hn-layer__h--tr"></i><i class="hn-layer__h hn-layer__h--br"></i><i class="hn-layer__h hn-layer__h--bl"></i>
+        <span class="hn-layer__size" data-hn-size></span>
+      </span>
+    </figure>
   </div>
 </section>`;
 }
