@@ -1,7 +1,6 @@
 // Черновик новой главной: стопка кейсов, точки таймлайна
 (() => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const wide = window.matchMedia('(min-width: 640px)');
   const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
 
   const onScroll = (fn) => {
@@ -17,7 +16,7 @@
 
   // Стопка кейсов: накрытая следующей карточка чуть уменьшается и темнеет
   const stack = [...document.querySelectorAll('[data-hn-stack]')];
-  if (stack.length && wide.matches && !reduceMotion) {
+  if (stack.length && !reduceMotion) {
     onScroll(() => {
       // Сколько карточек в ряду: следующей «накрывающей» считается карточка из следующего ряда
       const cols = getComputedStyle(stack[0].parentElement).gridTemplateColumns.split(' ').length;

@@ -11,7 +11,7 @@
   gap: var(--space-56);
 }
 .hn-hero__text { container-type: inline-size; display: flex; flex-direction: column; gap: var(--space-40); }
-.hn-hero__kicker { font-family: var(--font-mono-title); font-size: 26px; line-height: 34px; color: rgba(255, 255, 255, 0.8); }
+.hn-hero__kicker { font-family: var(--font-sans); font-size: 26px; line-height: 34px; color: rgba(255, 255, 255, 0.8); }
 .hn-title { display: flex; flex-direction: column; font-size: min(96px, 11.3cqi); font-weight: 600; line-height: 1.02; letter-spacing: -0.03em; }
 .hn-title .accent { font-weight: inherit; }
 /* Всегда две строки: размер подстраивается под ширину колонки (самая длинная строка ~8.7em) */
@@ -74,7 +74,7 @@
   .hn-title { font-size: 11.3cqi; }
   .hn-hero__actions { gap: var(--space-12); }
   .hn-hero .viewfinder { height: 340px; }
-  .hn-stack__item { position: static; transform: none; filter: none; }
+  .hn-stack__item { top: calc(16px + var(--i) * 12px); }
   .hn-jobs { --jobs-pad: var(--space-16); --dot-y: 34px; }
 }
 @media (prefers-reduced-motion: reduce) {
