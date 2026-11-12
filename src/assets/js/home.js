@@ -14,6 +14,10 @@
     fn();
   };
 
+  // Навигация прилипает: после начала скролла включается плашка с обводкой и размытием
+  const nav = document.querySelector('.nav');
+  if (nav) onScroll(() => nav.classList.toggle('is-stuck', window.scrollY > 8));
+
   // Стопка кейсов: накрытая следующей карточка чуть уменьшается и темнеет
   const stack = [...document.querySelectorAll('[data-hn-stack]')];
   if (stack.length && !reduceMotion) {
