@@ -12,7 +12,7 @@ function hero({ t, base, links }) {
   return `<section class="hn-hero">
   <div class="hn-hero__stage">
     <div class="hn-hero__text">
-      <p class="hn-hero__kicker">${esc(t.name.join(' '))} — ${esc(t.lead)}</p>
+      <p class="hn-hero__kicker">${esc(t.name.join(' '))} — ${esc(t.lead).replace(/(\d+) /g, "$1&nbsp;")}</p>
       <h1 class="hn-title">
         <span class="hn-title__line">${words(all.slice(0, half).join(' '))}</span>
         <span class="hn-title__line"><span class="accent hn-title__accent" style="--i:${half}">${esc(all.slice(half).join(' '))}</span></span>
