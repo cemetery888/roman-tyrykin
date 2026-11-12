@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 
 // Версия файла по его содержимому: после правки браузер не возьмёт старую копию из кэша
-const ver = (path) => {
+export const ver = (path) => {
   try { return `${path}?v=${createHash('md5').update(readFileSync(new URL(`../${path}`, import.meta.url))).digest('hex').slice(0, 8)}`; } catch { return path; }
 };
 
