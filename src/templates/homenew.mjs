@@ -36,11 +36,12 @@ function hero({ t, base, links }) {
 </section>`;
 }
 
-// Кейсы стопкой: карточки прилипают и наезжают друг на друга
+// Кейсы: исходные карточки, но при скролле прилипают наверху и накапливаются стопкой.
+// --i: номер карточки (одна колонка), --row: номер ряда (две колонки на десктопе)
 function cases({ t, base, cases: list, caseHref }) {
   const visible = list.filter((c) => !c.hidden);
-  const items = visible.map((c, i) => `<div class="hn-stack__item" style="--i:${i}" data-hn-stack>
-      ${caseCard({ c, t, base, href: caseHref(c.slug) }).replace(' data-reveal', '')}
+  const items = visible.map((c, i) => `<div class="hn-stack__item" style="--i:${i};--row:${Math.floor(i / 2)}" data-hn-stack>
+      ${caseCard({ c, t, base, href: caseHref(c.slug) })}
     </div>`).join('\n    ');
   return `<section class="section" id="cases" aria-labelledby="cases-title">
   <div class="section__head" data-reveal>
@@ -50,7 +51,7 @@ function cases({ t, base, cases: list, caseHref }) {
       <a href="${caseHref('ui')}"><span class="accent-text">${esc(t.visualLink)}</span><img src="${base}assets/img/arrow-gradient.svg" width="28" height="28" alt=""></a>
     </p>
   </div>
-  <div class="hn-stack">
+  <div class="cases hn-stack" data-hn-stack-list>
     ${items}
   </div>
 </section>`;
