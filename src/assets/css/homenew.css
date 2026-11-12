@@ -10,10 +10,12 @@
   align-items: center;
   gap: var(--space-56);
 }
-.hn-hero__text { display: flex; flex-direction: column; gap: var(--space-40); }
+.hn-hero__text { container-type: inline-size; display: flex; flex-direction: column; gap: var(--space-40); }
 .hn-hero__kicker { font-family: var(--font-mono-title); font-size: 20px; line-height: 26px; color: rgba(255, 255, 255, 0.5); }
-.hn-title { display: flex; flex-direction: column; font-size: min(6.6vw, 96px); font-weight: 600; line-height: 1.02; letter-spacing: -0.03em; }
+.hn-title { display: flex; flex-direction: column; font-size: min(96px, 11.3cqi); font-weight: 600; line-height: 1.02; letter-spacing: -0.03em; }
 .hn-title .accent { font-weight: inherit; }
+/* Всегда две строки: размер подстраивается под ширину колонки (самая длинная строка ~8.7em) */
+.hn-title__line { white-space: nowrap; }
 .hn-hero__actions { display: flex; gap: var(--space-16); }
 .hn-main { padding-top: var(--section-gap); }
 
@@ -62,7 +64,7 @@
 
 @media (max-width: 1199px) {
   .hn-hero__stage { padding-top: 140px; grid-template-columns: 1fr; gap: var(--space-56); }
-  .hn-title { font-size: 8.6vw; }
+  .hn-title { font-size: min(8.6vw, 11.3cqi); }
   .hn-hero .viewfinder { width: 100%; height: 480px; }
   .hn-stack .case { gap: var(--space-32); padding: var(--space-24); }
   .hn-stack .case__title { font-size: 28px; }
@@ -74,7 +76,7 @@
   .hn-hero__text { gap: var(--space-24); }
   .hn-hero__kicker { font-size: 16px; line-height: 22px; }
   .hn-hero__stage { gap: var(--space-40); }
-  .hn-title { font-size: 11.4vw; }
+  .hn-title { font-size: 11.3cqi; }
   .hn-hero__actions { gap: var(--space-12); }
   .hn-hero .viewfinder { height: 400px; }
   .hn-stack { gap: var(--space-12); }
