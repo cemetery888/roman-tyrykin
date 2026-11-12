@@ -715,6 +715,8 @@ a.job__company:hover { color: var(--color-text-accent); }
   transition: transform 0.35s var(--ease), width 0.35s var(--ease), opacity 0.25s;
 }
 .nav.is-pointing .nav__line { opacity: 1; }
+/* На прилипшей плашке подчёркивания нет, ховер только белым текстом */
+.nav.is-stuck .nav__line { display: none; }
 
 /* ===== «Обо мне» ===== */
 
