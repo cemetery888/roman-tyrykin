@@ -132,7 +132,7 @@ body .cursor-pointer, body .cursor-pointer * { cursor: url('../img/cursor-pointe
   position: absolute;
   z-index: 20;
   top: 36px;
-  right: max(var(--page-pad), calc((100vw - 1320px) / 2));
+  right: max(var(--page-pad), calc((100% - 1320px) / 2));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -166,7 +166,7 @@ a.lang__item:hover { opacity: 1; }
   position: fixed;
   z-index: 20;
   top: 36px;
-  left: calc(max(var(--page-pad), calc((100vw - 1320px) / 2)) - 1px);
+  left: calc(max(var(--page-pad), calc((100% - 1320px) / 2)) - 1px);
   display: flex;
   align-items: center;
   height: 52px;
