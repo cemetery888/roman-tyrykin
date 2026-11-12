@@ -1,12 +1,12 @@
-/* Черновик новой главной (/homenew): фото слоем на первом экране, кейсы стопкой, таймлайн опыта */
+/* Черновик новой главной (/homenew): видоискатель на первом экране, кейсы стопкой, таймлайн опыта */
 
-/* Первый экран: текст слева, фото справа как выделенный слой в Figma */
+/* Первый экран: текст слева, видоискатель справа */
 .hn-hero__stage {
   max-width: calc(1320px + 2 * var(--page-pad));
   margin: 0 auto;
   padding: 160px var(--page-pad) 0;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 440px;
+  grid-template-columns: minmax(0, 1fr) 480px;
   align-items: center;
   gap: var(--space-56);
 }
@@ -17,38 +17,18 @@
 .hn-hero__actions { display: flex; gap: var(--space-16); }
 .hn-main { padding-top: var(--section-gap); }
 
-/* Слой с фото: рамка выделения, ручки, имя слоя и размер */
-.hn-layer { position: relative; margin: 0; aspect-ratio: 1; }
-.hn-layer__photo { display: block; width: 100%; height: 100%; object-fit: cover; }
-.hn-layer__sel { position: absolute; inset: 0; border: 1.5px solid #7d60f3; pointer-events: none; }
-.hn-layer__name { position: absolute; left: -1.5px; bottom: calc(100% + 8px); font-family: var(--font-mono-title); font-size: 14px; line-height: 1; color: #b2a0f8; white-space: nowrap; }
-.hn-layer__h { position: absolute; width: 10px; height: 10px; border: 1.5px solid #7d60f3; background: #fff; }
-.hn-layer__h--tl { left: -6px; top: -6px; }
-.hn-layer__h--tr { right: -6px; top: -6px; }
-.hn-layer__h--br { right: -6px; bottom: -6px; }
-.hn-layer__h--bl { left: -6px; bottom: -6px; }
-.hn-layer__size {
-  position: absolute;
-  left: 50%;
-  top: calc(100% + 10px);
-  padding: 4px 7px;
-  border-radius: 4px;
-  background: #7d60f3;
-  font-family: var(--font-mono-title);
-  font-size: 13px;
-  line-height: 1;
-  color: #fff;
-  white-space: nowrap;
-  transform: translateX(-50%);
+/* Появление как на главной: подпись, слова заголовка и кнопки по очереди */
+.hn-title .w { display: inline-block; }
+.hn-title__accent {
+  display: inline-block;
+  background-image: linear-gradient(90deg, #bbcdfa 0%, #e9a0f8 25%, #f36e70 50%, #e9a0f8 75%, #bbcdfa 100%);
+  background-size: 200% 100%;
 }
-
-/* Появление: фото проявляется, затем рисуется рамка и выскакивают ручки */
-.js .hn-layer__photo { opacity: 0; transform: scale(0.94); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
-.js .hn-layer__sel { clip-path: inset(0 100% 100% 0); transition: clip-path 0.9s var(--ease) 0.4s; }
-.js .hn-layer__h, .js .hn-layer__name, .js .hn-layer__size { opacity: 0; transition: opacity 0.3s 1.2s; }
-.js .hn-layer.is-on .hn-layer__photo { opacity: 1; transform: none; }
-.js .hn-layer.is-on .hn-layer__sel { clip-path: inset(-40px -80px -50px -40px); }
-.js .hn-layer.is-on .hn-layer__h, .js .hn-layer.is-on .hn-layer__name, .js .hn-layer.is-on .hn-layer__size { opacity: 1; }
+.js .hn-hero__kicker, .js .hn-title .w, .js .hn-hero__actions { animation: rise-in 0.8s var(--ease) both; }
+.js .hn-hero__kicker { animation-delay: 0.1s; }
+.js .hn-title .w { animation-delay: calc(0.25s + var(--i) * 0.08s); }
+.js .hn-title__accent { animation: rise-in 0.8s var(--ease) both, gradient-flow 6s linear 1.4s infinite; animation-delay: calc(0.25s + var(--i) * 0.08s), 1.4s; }
+.js .hn-hero__actions { animation-delay: 0.9s; }
 
 /* Кейсы стопкой: каждая карточка прилипает чуть ниже предыдущей и наезжает на неё */
 .hn-stack { display: flex; flex-direction: column; gap: var(--space-40); }
@@ -81,8 +61,9 @@
 .hn-jobs .job.is-lit .hn-dot { border-color: #e9a0f8; background: #e9a0f8; box-shadow: 0 0 0 6px rgba(233, 160, 248, 0.16), 0 0 18px rgba(233, 160, 248, 0.45); }
 
 @media (max-width: 1199px) {
-  .hn-hero__stage { padding-top: 140px; grid-template-columns: minmax(0, 1fr) 30vw; gap: var(--space-40); }
-  .hn-title { font-size: 6.4vw; }
+  .hn-hero__stage { padding-top: 140px; grid-template-columns: 1fr; gap: var(--space-56); }
+  .hn-title { font-size: 8.6vw; }
+  .hn-hero .viewfinder { width: 100%; height: 480px; }
   .hn-stack .case { gap: var(--space-32); padding: var(--space-24); }
   .hn-stack .case__title { font-size: 28px; }
   .hn-stack .case__text { font-size: 18px; }
@@ -92,12 +73,10 @@
   .hn-hero__stage { padding-top: var(--page-top); }
   .hn-hero__text { gap: var(--space-24); }
   .hn-hero__kicker { font-size: 16px; line-height: 22px; }
-  .hn-hero__stage { grid-template-columns: 1fr; gap: var(--space-56); }
+  .hn-hero__stage { gap: var(--space-40); }
   .hn-title { font-size: 11.4vw; }
   .hn-hero__actions { gap: var(--space-12); }
-  .hn-layer { width: 72%; margin: 0 auto var(--space-24); }
-  .hn-layer__name { font-size: 12px; }
-  .hn-layer__size { font-size: 11px; }
+  .hn-hero .viewfinder { height: 400px; }
   .hn-stack { gap: var(--space-12); }
   .hn-stack__item { position: static; transform: none; filter: none; }
   .hn-stack .case { flex-direction: column; height: auto; gap: var(--space-28); padding: var(--space-20) var(--space-16); }
@@ -110,6 +89,5 @@
   .hn-jobs { --jobs-pad: var(--space-16); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .js .hn-layer__photo, .js .hn-layer__sel, .js .hn-layer__h, .js .hn-layer__name, .js .hn-layer__size { opacity: 1; transform: none; clip-path: none; transition: none; }
   .hn-stack__item { position: static; transform: none; filter: none; }
 }

@@ -1,4 +1,4 @@
-// Черновик новой главной: фото слоем на первом экране, стопка кейсов, точки таймлайна
+// Черновик новой главной: стопка кейсов, точки таймлайна
 (() => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const wide = window.matchMedia('(min-width: 640px)');
@@ -14,16 +14,6 @@
     window.addEventListener('resize', fn);
     fn();
   };
-
-  // Слой с фото: подпись реального размера и появление рамки после загрузки
-  const layer = document.querySelector('[data-hn-layer]');
-  if (layer) {
-    const size = layer.querySelector('[data-hn-size]');
-    const setSize = () => { size.textContent = `${Math.round(layer.offsetWidth)} × ${Math.round(layer.offsetHeight)}`; };
-    setSize();
-    window.addEventListener('resize', setSize);
-    requestAnimationFrame(() => requestAnimationFrame(() => layer.classList.add('is-on')));
-  }
 
   // Стопка кейсов: накрытая следующей карточка чуть уменьшается и темнеет
   const stack = [...document.querySelectorAll('[data-hn-stack]')];
