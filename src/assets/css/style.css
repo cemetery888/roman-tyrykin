@@ -159,14 +159,27 @@ a.lang__item:hover { opacity: 1; }
 .lang__divider { width: 1px; height: 24px; background: var(--color-text-primary); opacity: 0.4; }
 
 /* Навигация по разделам главной (в макете: Plex Mono 20, белый 50%, ховер 100%) */
+/* Прилипает при скролле: появляется обводка как у переключателя языка, круглые края и размытый фон.
+   Внутренний отступ есть всегда (сдвинут влево), чтобы пункты не прыгали при включении плашки */
 .nav {
-  position: absolute;
+  --nav-pad: var(--space-28);
+  position: fixed;
   z-index: 20;
   top: 36px;
-  left: max(var(--page-pad), calc((100vw - 1320px) / 2));
+  left: calc(max(var(--page-pad), calc((100vw - 1320px) / 2)) - var(--nav-pad) - 1px);
   display: flex;
   align-items: center;
   height: 52px;
+  padding: 0 var(--nav-pad);
+  border: 1px solid transparent;
+  border-radius: 26px;
+  transition: border-color 0.3s, background-color 0.3s, -webkit-backdrop-filter 0.3s, backdrop-filter 0.3s;
+}
+.nav.is-stuck {
+  border-color: #b2a0f8;
+  background-color: rgba(20, 20, 20, 0.6);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 }
 .nav__list { display: flex; gap: var(--space-40); }
 .nav__link {
@@ -178,7 +191,7 @@ a.lang__item:hover { opacity: 1; }
   transition: color 0.2s;
 }
 .nav__link:hover { color: var(--color-text-primary); }
-.section { scroll-margin-top: var(--space-24); }
+.section { scroll-margin-top: 120px; } /* под прилипшей навигацией */
 
 /* Кнопка «Наверх» (главная и кейсы) */
 .to-top-wrap {
@@ -472,7 +485,7 @@ a.job__company:hover { color: var(--color-text-accent); }
   padding: var(--space-64) var(--space-56);
   border-radius: var(--radius-12);
   background: var(--gradient-contacts);
-  scroll-margin-top: var(--space-24);
+  scroll-margin-top: 120px;
 }
 .contacts__title {
   flex: 1 1 0;
@@ -516,7 +529,7 @@ a.job__company:hover { color: var(--color-text-accent); }
     --title-gap: var(--space-32);
   }
   .lang { top: 24px; }
-  .nav { top: 24px; }
+  .nav { --nav-pad: var(--space-24); top: 24px; }
   .nav__list { gap: var(--space-28); }
   .hero { flex-direction: column; align-items: stretch; gap: var(--space-56); padding-top: var(--space-64); }
   .hero__text { gap: 36px; }
@@ -561,6 +574,7 @@ a.job__company:hover { color: var(--color-text-accent); }
   }
   .lang { top: 16px; height: 44px; }
   .nav { display: none; }
+  .section, .contacts { scroll-margin-top: var(--space-24); }
   .to-top-wrap { bottom: 16px; margin-bottom: 16px; }
   .to-top { width: 44px; height: 44px; }
   .hero { gap: var(--space-40); padding-top: 0; }
