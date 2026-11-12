@@ -32,7 +32,7 @@ export const ru = {
   lead: 'Продуктовый дизайнер с опытом более 10 лет.',
   leadAccent: 'Делаю дизайн, который работает.',
   // Новая главная (/homenew): подписи курсоров и комментарий на «холсте»
-  canvas: { me: 'Роман', client: 'Клиент', dev: 'Разработчик', comment: 'Это то, что нужно', frame: 'Hero / Заголовок' },
+  canvas: { frame: 'Роман.webp' },
   contacts: 'Контакты',
   nav: { label: 'Разделы', about: 'Обо мне', cases: 'Кейсы', experience: 'Опыт', contacts: 'Контакты' },
   cv: 'CV',
@@ -79,7 +79,7 @@ export const en = {
   name: ['Roman', 'Tyrykin'],
   lead: 'A product designer with more than 10 years of experience.',
   leadAccent: 'I design things that work.',
-  canvas: { me: 'Roman', client: 'Client', dev: 'Developer', comment: 'Exactly what we need', frame: 'Hero / Headline' },
+  canvas: { frame: 'Roman.webp' },
   contacts: 'Contacts',
   nav: { label: 'Sections', about: 'About Me', cases: 'Case Studies', experience: 'Experience', contacts: 'Contacts' },
   cv: 'CV',
