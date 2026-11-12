@@ -19,8 +19,10 @@
   const stack = [...document.querySelectorAll('[data-hn-stack]')];
   if (stack.length && wide.matches && !reduceMotion) {
     onScroll(() => {
+      // Сколько карточек в ряду: следующей «накрывающей» считается карточка из следующего ряда
+      const cols = getComputedStyle(stack[0].parentElement).gridTemplateColumns.split(' ').length;
       stack.forEach((item, i) => {
-        const next = stack[i + 1];
+        const next = stack[i + cols];
         if (!next) return;
         const top = parseFloat(getComputedStyle(item).top) || 0;
         const h = item.offsetHeight;

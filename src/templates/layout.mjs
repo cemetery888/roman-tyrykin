@@ -1,3 +1,11 @@
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+
+// Версия файла по его содержимому: после правки браузер не возьмёт старую копию из кэша
+const ver = (path) => {
+  try { return `${path}?v=${createHash('md5').update(readFileSync(new URL(`../${path}`, import.meta.url))).digest('hex').slice(0, 8)}`; } catch { return path; }
+};
+
 export const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 // **слово** → <strong class="…">слово</strong>
@@ -36,15 +44,15 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : ''}<link rel="canonical
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Onest:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="${base}assets/css/style.css">
-${styles.map((href) => `<link rel="stylesheet" href="${base}${href}">`).join('\n')}
+<link rel="stylesheet" href="${base}${ver('assets/css/style.css')}">
+${styles.map((href) => `<link rel="stylesheet" href="${base}${ver(href)}">`).join('\n')}
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="${bodyClass}">
 ${langSwitch(ls)}
 ${body}
-<script src="${base}assets/js/main.js" defer></script>
-${scripts.map((src) => `<script src="${base}${src}" defer></script>\n`).join('')}</body>
+<script src="${base}${ver('assets/js/main.js')}" defer></script>
+${scripts.map((src) => `<script src="${base}${ver(src)}" defer></script>\n`).join('')}</body>
 </html>
 `;
 }
