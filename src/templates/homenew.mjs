@@ -12,7 +12,7 @@ function hero({ t, base, links }) {
   return `<section class="hn-hero">
   <div class="hn-hero__stage">
     <div class="hn-hero__text">
-      <p class="hn-hero__kicker"><strong class="hn-hero__name">${esc(t.name.join(' '))}</strong> — ${esc(t.lead).replace(/(\d+) /g, "$1&nbsp;").replace(/ (с|with) /, ' $1 <br class="hn-hero__br">')}</p>
+      <p class="hn-hero__kicker"><strong class="hn-hero__name">${esc(t.name.join(' '))}</strong> — ${esc(t.lead).replace(/(\d+) /g, "$1&nbsp;").replace(/ (с|with) /, ' <br class="hn-hero__br">$1 ')}</p>
       <h1 class="hn-title">
         <span class="hn-title__line">${words(all.slice(0, half).join(' '))}</span>
         <span class="hn-title__line"><span class="accent hn-title__accent" style="--i:${half}">${esc(all.slice(half).join(' '))}</span></span>
