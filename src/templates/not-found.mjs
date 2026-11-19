@@ -1,4 +1,5 @@
 import { ver } from './layout.mjs';
+import { analytics } from './analytics.mjs';
 
 // 404 как холст Figma: точечная сетка, направляющие за курсором с координатами,
 // огромные «4 0 4» — слои, которые можно схватить и потаскать (отпускаешь — пружинят на место).
@@ -18,7 +19,7 @@ export function notFoundPage({ base }) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>404 — Роман Тырыкин</title>
+${analytics()}<title>404 — Роман Тырыкин</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#141414">
 <link rel="icon" href="${base}assets/img/favicon.svg" type="image/svg+xml">

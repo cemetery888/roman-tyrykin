@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { analytics } from './analytics.mjs';
 
 // Версия файла по его содержимому: после правки браузер не возьмёт старую копию из кэша
 export const ver = (path) => {
@@ -24,7 +25,7 @@ export function layout({ lang, base, title, description, og, url, altUrl, altLan
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(title)}</title>
+${analytics()}<title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 ${noindex ? '<meta name="robots" content="noindex">\n' : ''}<link rel="canonical" href="${url}">
 <link rel="alternate" hreflang="${lang}" href="${url}">
